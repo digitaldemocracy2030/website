@@ -49,3 +49,22 @@
 広聴AIプロジェクトは、市民の声をより効果的に政策に反映させるための取り組みを続けています。今後も機能の拡充や使いやすさの向上を目指して開発を進めてまいります。
 
 ぜひ広聴AIをご活用いただき、市民と行政・政治家の対話を促進する新しい民主主義の形を一緒に築いていきましょう。
+
+## コントリビューター
+
+広聴AI v2.0.0の開発に貢献した方々（アルファベット順）：
+
+- [101ta28](https://github.com/101ta28)
+- [ei-blue](https://github.com/ei-blue)
+- [masatosasano2](https://github.com/masatosasano2)
+- [mattatz](https://github.com/mattatz)
+- [mtane0412](https://github.com/mtane0412)
+- [nanocloudx](https://github.com/nanocloudx)
+- [nasuka](https://github.com/nasuka)
+- [nishio](https://github.com/nishio)
+- [shgtkshruch](https://github.com/shgtkshruch)
+- [shingo-ohki](https://github.com/shingo-ohki)
+- [take365](https://github.com/take365)
+- [takahiroanno](https://github.com/takahiroanno)
+- [tokoroten](https://github.com/tokoroten)
+- [yuneko1127](https://github.com/yuneko1127)
