@@ -24,7 +24,7 @@ export async function generateStaticParams() {
       
       weekFiles.forEach(file => {
         if (file.endsWith('.md')) {
-          const slug = `history/${weekDir}/${file.replace(/\.md$/, '')}`
+          const slug = `${weekDir}/${file.replace(/\.md$/, '')}`
           slugs.push({ slug })
         }
       })
