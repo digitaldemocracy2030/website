@@ -45,9 +45,9 @@ export default async function Page({ params }: PageProps) {
   let filePath = ''
   
   const parts = slug.split('/')
-  if (parts.length >= 3) {
-    const weekDir = parts[1]
-    const fileBase = parts[2]
+  if (parts.length >= 2) {
+    const weekDir = parts[0]
+    const fileBase = parts[1]
     filePath = path.join(process.cwd(), 'markdown', 'history', weekDir, `${fileBase}.md`)
   }
 
@@ -125,9 +125,9 @@ function generateNavigationLinks(currentSlug: string): {
   const historyDir = path.join(markdownDir, 'history')
 
   const parts = currentSlug.split('/')
-  if (parts.length >= 3) {
-    const weekDir = parts[1] // week1_20250404
-    const fileBase = parts[2] // slack または project
+  if (parts.length >= 2) {
+    const weekDir = parts[0] // week1_20250404
+    const fileBase = parts[1] // slack または project
     
     const weekMatch = weekDir.match(/week(\d+)_/)
     if (weekMatch) {
