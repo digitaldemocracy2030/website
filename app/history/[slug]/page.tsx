@@ -125,7 +125,8 @@ function generateNavigationLinks(currentSlug: string): {
   const markdownDir = path.join(process.cwd(), 'markdown')
   const historyDir = path.join(markdownDir, 'history')
 
-  const parts = currentSlug.split('/')
+  const cleanSlug = currentSlug.endsWith('/') ? currentSlug.slice(0, -1) : currentSlug
+  const parts = cleanSlug.split('/')
   if (parts.length >= 2) {
     const weekDir = parts[0] // week1_20250404
     const fileBase = parts[1] // slack または project
