@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   distDir: 'out',
-  skipTrailingSlashRedirect: true,
-  skipMiddlewareUrlNormalize: true,
+  // skipTrailingSlashRedirect: true,
+  // skipMiddlewareUrlNormalize: true,
   basePath: process.env.NEXT_PUBLIC_PR_NUMBER ? `/pr-preview/pr-${process.env.NEXT_PUBLIC_PR_NUMBER}` : '',
 }
 
