@@ -156,9 +156,9 @@ function generateNavigationLinks(currentSlug: string): {
           const prevDirPath = path.join(historyDir, prevDir)
           
           if (fileBase === 'slack' && fs.existsSync(path.join(prevDirPath, 'slack.md'))) {
-            result.prev = `history/${prevDir}/slack`
+            result.prev = `${prevDir}/slack`
           } else if (fs.existsSync(path.join(prevDirPath, `${fileBase}.md`))) {
-            result.prev = `history/${prevDir}/${fileBase}`
+            result.prev = `${prevDir}/${fileBase}`
           }
         }
         
@@ -172,9 +172,9 @@ function generateNavigationLinks(currentSlug: string): {
           const nextDirPath = path.join(historyDir, nextDir)
           
           if (fileBase === 'slack' && fs.existsSync(path.join(nextDirPath, 'slack.md'))) {
-            result.next = `history/${nextDir}/slack`
+            result.next = `${nextDir}/slack`
           } else if (fs.existsSync(path.join(nextDirPath, `${fileBase}.md`))) {
-            result.next = `history/${nextDir}/${fileBase}`
+            result.next = `${nextDir}/${fileBase}`
           }
         }
       }
