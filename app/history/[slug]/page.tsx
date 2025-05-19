@@ -44,7 +44,8 @@ export default async function Page({ params }: PageProps) {
   const slug = (await params).slug
   let filePath = ''
   
-  const parts = slug.split('/')
+  const cleanSlug = slug.endsWith('/') ? slug.slice(0, -1) : slug
+  const parts = cleanSlug.split('/')
   if (parts.length >= 2) {
     const weekDir = parts[0]
     const fileBase = parts[1]
