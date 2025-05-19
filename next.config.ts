@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // Enable static image imports for Next.js Image component
   images: {
     unoptimized: true,
+    loader: 'custom',
+    loaderFile: './lib/image-loader.ts',
   },
   // Add trailingSlash for better compatibility with static file serving
   trailingSlash: true,

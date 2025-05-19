@@ -1,9 +1,8 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import './global.css'
-import './content.css'
 import { biz_udGothic400, inter } from '@/lib/fonts'
+import { CssLoader } from '../components/CssLoader'
 
 export const metadata: Metadata = {
   title: 'デジタル民主主義2030',
@@ -87,6 +86,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       ],
     },
   ]
+
+
   return (
     <html
       lang="ja"
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <CssLoader />
         <Header />
         <main>
           <div className="max-w-7xl mx-auto px-4 py-6">{children}</div>

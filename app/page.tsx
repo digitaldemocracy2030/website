@@ -36,7 +36,7 @@ export default async function Page() {
             </div>
           </hgroup>
           <Image
-            src="/home__3project__kouchou-ai.webp"
+            src={process.env.NEXT_PUBLIC_PR_NUMBER ? `/pr-preview/pr-${process.env.NEXT_PUBLIC_PR_NUMBER}/home__3project__kouchou-ai.webp` : '/home__3project__kouchou-ai.webp'}
             width={576}
             height={262.8}
             alt="広聴AIのイメージ画像"
@@ -73,7 +73,7 @@ export default async function Page() {
             </div>
           </hgroup>
           <Image
-            src="/home__3project__idobata.webp"
+            src={process.env.NEXT_PUBLIC_PR_NUMBER ? `/pr-preview/pr-${process.env.NEXT_PUBLIC_PR_NUMBER}/home__3project__idobata.webp` : '/home__3project__idobata.webp'}
             width={576}
             height={324.89}
             alt="いどばたのイメージ画像"
@@ -108,7 +108,7 @@ export default async function Page() {
             </div>
           </hgroup>
           <Image
-            src="/home__3project__polimoney.webp"
+            src={process.env.NEXT_PUBLIC_PR_NUMBER ? `/pr-preview/pr-${process.env.NEXT_PUBLIC_PR_NUMBER}/home__3project__polimoney.webp` : '/home__3project__polimoney.webp'}
             width={576}
             height={315}
             alt="Polimoneyのイメージ画像"
