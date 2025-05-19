@@ -58,7 +58,7 @@ export default async function Page() {
     }
 
     if (weekFiles.includes('slack.md')) {
-      weeklyActivities[week].slack.push(`history/${weekDir}/slack`)
+      weeklyActivities[week].slack.push(`${weekDir}/slack`)
     }
 
     weekFiles.forEach((file: string) => {
@@ -69,7 +69,7 @@ export default async function Page() {
           weeklyActivities[week].github[project] = []
         }
         
-        weeklyActivities[week].github[project].push(`history/${weekDir}/${project}`)
+        weeklyActivities[week].github[project].push(`${weekDir}/${project}`)
       }
     })
   })
