@@ -143,3 +143,20 @@ object {
 .markdown-body ol {
   list-style: initial;
 }
+
+/* Styles for Markdown content */
+.markdown-content :where(h2) {
+  @apply text-3xl;
+}
+
+.markdown-content :where(h3) {
+  @apply text-2xl mt-8;
+}
+
+.markdown-content :where(p) {
+  @apply mt-4;
+}
+
+.markdown-content :where(a) {
+  @apply underline underline-offset-2 hover:no-underline;
+}
