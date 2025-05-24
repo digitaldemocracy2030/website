@@ -12,8 +12,24 @@ export default async function Page() {
       <section className="mx-auto max-w-xl mt-10">
         <hgroup>
           <h2 className="text-3xl">Polimoney</h2>
-          <p className="font-bold mt-2">政治資金の透明化：政治資金の見える化ダッシュボードの開発</p>
+          <div className="flex gap-4 mt-20">
+          {/* <Link href="" className={`${buttonVariants()} h-11`}>
+            <span></span>
+            使い方を見てみる
+            <NavigateNextIcon />
+          </Link>
+          <Link href="" className={`${buttonVariants()} h-11`}>
+            <span></span>
+            実際に使ってみる
+            <NavigateNextIcon />
+            </Link> */}
+          </div>
+          <div className="my-8" />
+          <p className="font-bold mt-2">
+            政治資金の透明化：政治資金の見える化ダッシュボードの開発
+          </p>
         </hgroup>
+        <div className="my-8" />
         <Image
           src="/home__3project__polimoney.webp"
           width={576}

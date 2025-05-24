@@ -25,8 +25,10 @@ export default async function Page() {
             rel="noopener noreferrer"
             className={`${buttonVariants({ variant: 'outline' })} h-9 border-black inline-flex items-center gap-2`}
           >
-            AIで多くの住民の意見を政策立案に反映する『ブロードリスニング』の先進的なトライアルを実施しました（宇多津町の公式サイト）
+            宇多津町での取り組み
+            
             <NavigateNextIcon />
+
           </a>
         </div>
       </section>
