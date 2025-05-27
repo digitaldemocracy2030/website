@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import SNSSharePanel from './SNSSharePanel'
-import { usePathname } from 'next/navigation'
 import {
   Drawer,
   DrawerClose,
@@ -23,35 +22,15 @@ export function Header() {
   const handleLinkClick = () => {
     setOpen(false) // ページ遷移前にドロワーを閉じる
   }
-  const path = usePathname()
-  const isNotH1 = () => {
-    if (
-      path.indexOf('/history/') === 0 ||
-      path.indexOf('/policies/') === 0 ||
-      path.indexOf('/docs/') === 0
-    ) {
-      return false
-    } else {
-      return true
-    }
-  }
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto w-full max-w-7xl">
         <div className="flex items-center h-14 px-4">
-          {isNotH1() ? (
-            <h1 className="flex-1">
-              <Link href="/" className="inline-block font-bold text-xl">
-                デジタル民主主義2030
-              </Link>
-            </h1>
-          ) : (
-            <div className="flex-1">
-              <Link href="/" className="inline-block font-bold text-xl">
-                デジタル民主主義2030
-              </Link>
-            </div>
-          )}
+          <div className="flex-1">
+            <Link href="/" className="flex items-center">
+              <img src="/dd2030_logo_1line_w500_color.png" alt="デジタル民主主義2030" className="cursor-pointer w-auto h-15"/>
+            </Link>
+          </div>
           <SNSSharePanel className="mr-4" />
           <Drawer direction="right" open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
