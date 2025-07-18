@@ -33,19 +33,19 @@ export default function Page() {
 
         <h5 className="text-lg mt-6">ユーザーの反響</h5>
         <div className="mt-4 space-y-4">
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/kazuneiwasa/status/1924801224198783367" width={325} />
           </div>
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/kazuneiwasa/status/1924802106164429304" width={325} />
           </div>
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/nishio/status/1923636525365068238" width={325} />
           </div>
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/kanamehamada530/status/1923658285917335988" width={325} />
           </div>
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/yoshifuji_tokyo/status/1924808491249893702" width={325} />
           </div>
         </div>
@@ -89,12 +89,12 @@ export default function Page() {
         </div>
 
         <div className="mt-4 space-y-4">
-          <div className="border rounded p-4">
+          <div>
             <XEmbed url="https://x.com/takahiroanno/status/1923253426747736186" width={325} />
           </div>
           <div>
             <p className="text-sm text-gray-600 mb-2">有志による解説漫画：</p>
-            <div className="border rounded p-4">
+            <div>
               <XEmbed url="https://x.com/0Sbd6vJNiC7619/status/1939166957200384035" width={325} />
             </div>
           </div>
