@@ -14,7 +14,7 @@ export default async function Page() {
         </p>
         <div className="mt-4">
           <a
-            href="https://polimoney.dd2030.org/demo-takahiro-anno-2024"
+            href="https://polimoney.dd2030.org/takahiro-anno/2024"
             target="_blank"
             rel="noopener noreferrer"
             className={`${buttonVariants({
@@ -32,7 +32,7 @@ export default async function Page() {
         </p>
         <div className="mt-4">
           <a
-            href="https://polimoney.dd2030.org/demo-ryosuke-idei-2024"
+            href="https://polimoney.dd2030.org/ryosuke-idei/2024"
             target="_blank"
             rel="noopener noreferrer"
             className={`${buttonVariants({
@@ -50,7 +50,7 @@ export default async function Page() {
         </p>
         <div className="mt-4">
           <a
-            href="https://polimoney.dd2030.org/demo-koki-fujisaki-2024"
+            href="https://polimoney.dd2030.org/koki-fujisaki/2024"
             target="_blank"
             rel="noopener noreferrer"
             className={`${buttonVariants({
