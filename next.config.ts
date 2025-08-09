@@ -15,6 +15,19 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   skipMiddlewareUrlNormalize: true,
   basePath: process.env.NEXT_PUBLIC_PR_NUMBER ? `/pr-preview/pr-${process.env.NEXT_PUBLIC_PR_NUMBER}` : '',
+  headers: async () => {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 export default nextConfig
