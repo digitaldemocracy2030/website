@@ -24,7 +24,7 @@
     "github-markdown-css": "^5.8.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.488.0",
-    "marked": "^15.0.7",
+    "marked": "^16.1.2",
     "next-mdx-remote": "^5.0.0",
     "postcss": "^8.5.3",
     "react": "^19.1.0",
