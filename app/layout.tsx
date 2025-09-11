@@ -93,6 +93,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${biz_udGothic400.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <meta name="apple-mobile-web-app-title" content="DD2030" />
+      </head>
       <body>
         {/* JSON-LD構造化データを埋め込み */}
         <script
