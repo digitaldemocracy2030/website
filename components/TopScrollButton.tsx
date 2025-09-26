@@ -7,7 +7,7 @@ export function TopScrollButton() {
     <div className="flex justify-center mt-10">
       <button
         type="button"
-        className={`${buttonVariants({ variant: 'outline' })} h-11 border-black`}
+        className={`${buttonVariants({ variant: 'outline' })} h-11 border-black cursor-pointer`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         トップに戻る
