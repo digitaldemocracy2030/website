@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import './global.css'
@@ -94,6 +95,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${biz_udGothic400.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
+      <GoogleTagManager gtmId="GTM-KJVBDN9P" />
       <body>
         <NextTopLoader showSpinner={false} />
         {/* JSON-LD構造化データを埋め込み */}
