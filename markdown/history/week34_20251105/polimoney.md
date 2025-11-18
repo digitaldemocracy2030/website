@@ -24,7 +24,7 @@
 
 ---
 
-### 2. [PR #197](https://github.com/digitaldemocracy2030/polimoney/pull/208) 「サンキー図・一覧表のデータを統一」
+### 2. [PR #208](https://github.com/digitaldemocracy2030/polimoney/pull/208) 「サンキー図・一覧表のデータを統一」
 
 - **作成者:** grassfieldk  
 - **作成日:** 2025-10-24  
