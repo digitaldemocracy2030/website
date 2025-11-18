@@ -57,7 +57,7 @@ OSS開発に興味のある方は、ぜひ気になるIssueやPRの議論に参�
   - 作成者: grassfieldk  
   - Next.jsの静的エクスポート設定から動的サイトへの切り替えを検討。GitHub Pages以外へのデプロイ戦略を議論中です。
 
-- [Issue #218](https://github.com/digitaldemocracy2030/polimoney/issues/218) (ディレクト構成の整理)  
+- [Issue #218](https://github.com/digitaldemocracy2030/polimoney/issues/218) (ディレクトリ構成の整理)  
   - 作成者: grassfieldk  
   - Next.jsプロジェクトのディレクトリ構成を整理する提案。frontend/ディレクトリを新設し、コード管理をわかりやすくする方法を模索しています。
 
