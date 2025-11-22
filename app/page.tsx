@@ -18,10 +18,15 @@ export default async function Page() {
         <p className="max-w-xl mt-4">
           「デジタル民主主義2030」は、技術の力で市民の声を活かし、政治をより良い形に進化させることを目指したプロジェクトです。透明性と信頼を重視し、多くの人々が政策に参加できる未来を目指しています。
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex gap-4 flex-wrap">
           <Link href="/about" className={`${buttonVariants()} h-11`}>
             <span></span>
             もっと詳しく
+            <NavigateNextIcon />
+          </Link>
+          <Link href="/newcomer" className={`${buttonVariants()} h-11`}>
+            <span></span>
+            初めての方へ
             <NavigateNextIcon />
           </Link>
         </div>
