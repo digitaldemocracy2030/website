@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Page() {
   const filePath = path.join(process.cwd(), 'markdown', 'newcomer.md')
   const markdown = fs.readFileSync(filePath, 'utf-8')
-  const html = await marked(markdown)
+  const content = await marked(markdown)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -27,7 +27,7 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   )
 }
