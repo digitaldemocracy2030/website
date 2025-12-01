@@ -1,0 +1,19 @@
+{
+  "name": "Deno",
+  "image": "mcr.microsoft.com/devcontainers/base:trixie",
+  "features": {
+    "ghcr.io/devcontainers-community/features/deno:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "editor.defaultFormatter": "denoland.vscode-deno"
+      },
+      "extensions": [
+        "denoland.vscode-deno"
+      ]
+    }
+  }
+}
