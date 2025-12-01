@@ -62,7 +62,7 @@ export function Header() {
             <DrawerContent>
               <DrawerHeader className="hidden">
                 <DrawerTitle>グローバルナビゲーション</DrawerTitle>
-                <DrawerDescription>ここから各ページへ遷移できます。</DrawerDescription>
+                <DrawerDescription>ここから各ページへ遷移できます</DrawerDescription>
               </DrawerHeader>
               <DrawerClose asChild>
                 <Button variant="outline" className="my-4 mx-4 cursor-pointer">
