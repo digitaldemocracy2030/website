@@ -5,9 +5,13 @@ title: ホーム
 noindex: true
 ---
 <div>
-  <p class="text-4xl sm:text-5xl flex flex-col gap-5 items-start font-bold py-12 mx-auto max-w-xl">
-    <span class="box-decoration-clone gradient block py-1 px-2">みんなで創る、</span>
-    <span class="box-decoration-clone gradient block py-1 px-2">みんなの未来。</span>
+  <p
+    class="text-4xl sm:text-5xl flex flex-col gap-5 items-start font-bold py-12 mx-auto max-w-xl"
+  >
+    <span class="box-decoration-clone gradient block py-1 px-2"
+    >みんなで創る、</span>
+    <span class="box-decoration-clone gradient block py-1 px-2"
+    >みんなの未来。</span>
   </p>
   <section class="mx-auto max-w-xl">
     <h2 class="text-3xl">デジタル民主主義2030とは</h2>
@@ -16,12 +20,10 @@ noindex: true
     </p>
     <div class="mt-4 flex gap-4 flex-wrap">
       <a href="/about" class="btn btn-primary h-11">
-        もっと詳しく
-        →
+        もっと詳しく →
       </a>
       <a href="/newcomer" class="btn btn-primary h-11">
-        初めての方へ
-        →
+        初めての方へ →
       </a>
     </div>
   </section>
@@ -51,12 +53,10 @@ noindex: true
       </p>
       <div class="flex gap-4 mt-4">
         <a href="/case/kouchou-ai" class="btn btn-primary h-11">
-          活用事例
-          →
+          活用事例 →
         </a>
         <a href="/kouchou-ai" class="btn btn-primary h-11">
-          もっと詳しく
-          →
+          もっと詳しく →
         </a>
       </div>
     </section>
@@ -82,12 +82,10 @@ noindex: true
       </p>
       <div class="flex gap-4 mt-4">
         <a href="/case/idobata" class="btn btn-primary h-11">
-          活用事例
-          →
+          活用事例 →
         </a>
         <a href="/idobata" class="btn btn-primary h-11">
-          もっと詳しく
-          →
+          もっと詳しく →
         </a>
       </div>
     </section>
@@ -118,16 +116,13 @@ noindex: true
           target="_blank"
           rel="noopener"
         >
-          Webサイトを見る
-          →
+          Webサイトを見る →
         </a>
         <a href="/case/polimoney" class="btn btn-primary h-11">
-          活用事例
-          →
+          活用事例 →
         </a>
         <a href="/polimoney" class="btn btn-primary h-11">
-          もっと詳しく
-          →
+          もっと詳しく →
         </a>
       </div>
     </section>
@@ -138,19 +133,20 @@ noindex: true
     <h2 class="text-3xl mt-5 border-b pb-4">最新のお知らせ</h2>
     <ul class="space-y-4 mt-4">
       {{ for entry of search.pages("type=news", "date=desc", 3) }}
-      <li class="border-b pb-4">
-        <a href="{{entry.url}}" class="text-xl text-blue-600 hover:underline">
-          {{ entry.title }}
-        </a>
-        <p class="text-gray-600 mt-1">{{ entry.published |> date("y年M月d日") }}</p>
-        <p class="mt-2">{{ entry.excerpt }}</p>
-      </li>
+        <li class="border-b pb-4">
+          <a href="{{entry.url}}" class="text-xl text-blue-600 hover:underline">
+            {{ entry.title }}
+          </a>
+          <p class="text-gray-600 mt-1">
+            {{ entry.published |> date("y年M月d日") }}
+          </p>
+          <p class="mt-2">{{ entry.excerpt }}</p>
+        </li>
       {{ /for }}
     </ul>
     <div class="flex gap-4 mt-4">
       <a href="/news" class="btn btn-primary h-11">
-        お知らせ一覧へ
-        →
+        お知らせ一覧へ →
       </a>
     </div>
   </section>
@@ -162,13 +158,15 @@ noindex: true
     </p>
     <div class="mt-4 flex gap-4 flex-wrap">
       <a href="/contribution" class="btn btn-primary h-11">
-        参加方法
-        →
+        参加方法 →
       </a>
-      <a href="https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w" 
-         class="btn btn-primary h-11" target="_blank" rel="noopener">
-        Slackに参加
-        →
+      <a
+        href="https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w"
+        class="btn btn-primary h-11"
+        target="_blank"
+        rel="noopener"
+      >
+        Slackに参加 →
       </a>
     </div>
   </section>

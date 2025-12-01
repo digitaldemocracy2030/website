@@ -5,7 +5,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - 'lume/**'
+      - "lume/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,11 +28,13 @@ jobs:
         working-directory: ./lume
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Deno environment
-        uses: denoland/setup-deno@v1
+        uses: actions/checkout@v6
         with:
-          deno-version: v2.x
+          fetch-depth: 0
+      - name: Setup Deno environment
+        uses: denoland/setup-deno@v2
+        with:
+          cache: true
       - name: get denoDir
         run: echo "denoDir=$(deno info --json | jq -r .denoDir)/*" >> "$GITHUB_OUTPUT"
         id: deno-dir

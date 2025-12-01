@@ -33,7 +33,11 @@
 
 .gradient {
   background: hsla(259, 83%, 84%, 1);
-  background: linear-gradient(135deg, hsla(259, 83%, 84%, 1) 25%, hsla(169, 80%, 73%, 1) 100%);
+  background: linear-gradient(
+    135deg,
+    hsla(259, 83%, 84%, 1) 25%,
+    hsla(169, 80%, 73%, 1) 100%
+  );
 }
 
 .btn {
