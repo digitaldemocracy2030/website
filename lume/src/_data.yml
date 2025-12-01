@@ -1,0 +1,18 @@
+description: デジタル民主主義2030プロジェクトポータルサイト
+metas:
+  site: デジタル民主主義2030
+  lang: ja
+  twitter: "@dd2030"
+  generator: true
+  title: "=title"
+  description: "=description"
+layout: layout.vto
+jsonLd:
+  "@type": WebSite
+  url: https://dd2030.org
+  headline: デジタル民主主義2030
+  name: "=title"
+  description: "=description"
+  author:
+    "@type": Organization
+    name: デジタル民主主義2030
