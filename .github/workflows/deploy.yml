@@ -16,9 +16,6 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lume
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -38,11 +35,11 @@ jobs:
           key: ${{ runner.os }}-deno
       - name: Configure Pages
         id: configure
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: lume build
         run: deno task build --location=${{steps.configure.outputs.base_url}}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "_site"
   deploy:
