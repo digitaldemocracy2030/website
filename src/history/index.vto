@@ -4,20 +4,12 @@ description: デジタル民主主義2030プロジェクトの歴史と週ごと
 ---
 {{ for week of weeks }}
   <h2>第{{ week.week }}週の活動</h2>
-  <p>
-    {{
-      week.date.toLocaleDateString("ja-JP", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    }} ~
-  </p>
+  <p> {{ week.date.toLocaleDateString("ja-JP") }} ~ </p>
+  <div class="flex gap-2">
   {{ for entry of week.entries }}
-    <div class="mt-4">
-      <a href="{{ entry.url |> url }}" class="text-blue-600 hover:underline">
-        {{ entry.subject }}
-      </a>
-    </div>
+    <a href="{{ entry.url |> url }}" class="">
+      {{ entry.subject }}
+    </a>
   {{ /for }}
+  </div>
 {{ /for }}

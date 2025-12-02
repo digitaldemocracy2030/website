@@ -40,7 +40,7 @@ noindex: true
         </div>
       </hgroup>
       <img
-        src="./home__3project__kouchou-ai.webp"
+        src="kouchou-ai/home__3project__kouchou-ai.webp"
         width="576"
         height="262"
         alt="広聴AIのイメージ画像"
@@ -71,7 +71,7 @@ noindex: true
         </div>
       </hgroup>
       <img
-        src="./home__3project__idobata.webp"
+        src="idobata/home__3project__idobata.webp"
         width="576"
         height="324"
         alt="いどばたのイメージ画像"
@@ -81,11 +81,11 @@ noindex: true
         「いどばた」は、台湾の先行事例「JOIN」や「vTaiwan」を参考に、日本でも政策決定プロセスへの市民参加の実現に向けて、大規模な熟議プラットフォームを開発するプロジェクトです。
       </p>
       <div class="flex gap-4 mt-4">
-        <a href="./case/idobata" class="btn btn-primary h-11">
-          活用事例 →
-        </a>
         <a href="./idobata" class="btn btn-primary h-11">
           もっと詳しく →
+        </a>
+        <a href="./idobata/case" class="btn btn-primary h-11">
+          活用事例 →
         </a>
       </div>
     </section>
@@ -100,7 +100,7 @@ noindex: true
         </div>
       </hgroup>
       <img
-        src="./home__3project__polimoney.webp"
+        src="polimoney/home__3project__polimoney.webp"
         width="576"
         height="315"
         alt="Polimoneyのイメージ画像"
@@ -134,13 +134,13 @@ noindex: true
     <ul class="space-y-4 mt-4">
       {{ for entry of search.pages("type=news", "date=desc", 3) }}
         <li class="border-b pb-4">
-          <a href="{{entry.url}}" class="text-xl text-blue-600 hover:underline">
+          <a href="{{entry.url |> url }}" class="text-xl text-blue-600 hover:underline">
             {{ entry.title }}
           </a>
           <p class="text-gray-600 mt-1">
             {{ entry.published |> date("y年M月d日") }}
           </p>
-          <p class="mt-2">{{ entry.excerpt }}</p>
+          <p class="mt-2">{{ entry.description }}</p>
         </li>
       {{ /for }}
     </ul>

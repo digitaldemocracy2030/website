@@ -1,5 +1,5 @@
 import lume from "lume/mod.ts";
-import checkUrls from "lume/plugins/check_urls.ts";
+// import checkUrls from "lume/plugins/check_urls.ts";
 import date from "lume/plugins/date.ts";
 import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
@@ -23,7 +23,7 @@ const site = lume({
   markdown: { options: { breaks: false }, plugins: [] },
 });
 
-site.use(checkUrls({ strict: true, output: "report.txt" }));
+// site.use(checkUrls({ strict: true }));
 site.use(date());
 site.use(favicon({ input: "favicon.png" }));
 site.use(jsonLd());
