@@ -51,8 +51,8 @@ export const defaults: ManifestOptions = {
   theme_color: "#ffffff",
   background_color: "#ffffff",
   display: "standalone",
-  start_url: "/",
-  scope: "/",
+  start_url: undefined,
+  scope: undefined,
   icons: [
     { size: 192, format: "png", purpose: "any" },
     { size: 512, format: "png", purpose: "any" },
@@ -176,6 +176,8 @@ export function manifest(userOptions?: ManifestOptions) {
       }
       if (options.start_url) {
         manifestContent.start_url = options.start_url;
+      } else {
+        manifestContent.start_url = site.options.location.pathname;
       }
       if (options.scope) {
         manifestContent.scope = options.scope;
