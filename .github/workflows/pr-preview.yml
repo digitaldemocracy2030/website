@@ -41,13 +41,12 @@ jobs:
         run: echo "BASE_PATH=pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
 
       - name: Build
-        working-directory: lume
         run: deno task build --location=${{steps.configure.outputs.base_url}}$BASE_PATH --dest _site/$BASE_PATH
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./lume/site
+          path: ./_site
 
   # Deployment job
   deploy:
@@ -63,14 +62,8 @@ jobs:
 
       # PRにプレビューURLをコメント
       - name: Comment PR
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const prNumber = context.issue.number;
-            const previewUrl = `${{ steps.deployment.outputs.page_url }}pr-preview/pr-${prNumber}/`;
-            github.rest.issues.createComment({
-              issue_number: prNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `📝 プレビューデプロイが完了しました！ \n\n[プレビューを表示](${previewUrl})`
-            });
+        run: |
+          preview_url="${{ steps.deployment.outputs.page_url }}pr-preview/pr-${{ github.event.pull_request.number }}/"
+          gh pr comment ${{ github.event.pull_request.number }} --body "📝 プレビューデプロイが完了しました！ \n\n[プレビューを表示](${preview_url})"
+        env:
+          GH_TOKEN: ${{ github.token }}
