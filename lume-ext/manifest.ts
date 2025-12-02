@@ -83,8 +83,9 @@ interface Manifest {
  */
 export function manifest(userOptions?: ManifestOptions) {
   const options = merge(defaults, userOptions);
+  // Use 512 as default size since that's the largest icon we generate
   const input = typeof options.input === "string"
-    ? { 16: options.input }
+    ? { 512: options.input }
     : options.input;
 
   return (site: Site) => {
@@ -122,6 +123,9 @@ export function manifest(userOptions?: ManifestOptions) {
 
       for (const icon of options.icons!) {
         const content = getBestContent(contents, [icon.size]);
+        if (!content) {
+          continue;
+        }
         const format = icon.format || "png";
         const url = `/icon-${icon.size}x${icon.size}.${format}`;
 
@@ -243,9 +247,13 @@ async function buildIcon(
 function getBestContent(
   content: Record<number, Uint8Array | string>,
   sizes: number[],
-): Uint8Array | string {
-  const size = Math.min(...sizes);
+): Uint8Array | string | undefined {
   const availableSizes = Object.keys(content).map(Number);
+  if (availableSizes.length === 0) {
+    return undefined;
+  }
+
+  const size = Math.min(...sizes);
 
   // Find the closest size available
   let bestSize = availableSizes[0];
