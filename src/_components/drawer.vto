@@ -31,7 +31,7 @@ menu:
       <!-- Sidebar content here -->
       {{ for item of menu }}
         <li>
-          <a href="{{ item.url }}">
+          <a href="{{ item.url |> url }}">
             {{ item.name }}
           </a>
         </li>

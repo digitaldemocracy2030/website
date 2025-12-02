@@ -15,7 +15,7 @@ description: デジタル民主主義2030プロジェクトの歴史と週ごと
   </p>
   {{ for entry of week.entries }}
     <div class="mt-4">
-      <a href="{{ entry.url }}" class="text-blue-600 hover:underline">
+      <a href="{{ entry.url |> url }}" class="text-blue-600 hover:underline">
         {{ entry.subject }}
       </a>
     </div>
