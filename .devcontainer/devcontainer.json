@@ -12,7 +12,8 @@
         "editor.defaultFormatter": "denoland.vscode-deno"
       },
       "extensions": [
-        "denoland.vscode-deno"
+        "denoland.vscode-deno",
+        "oscarotero.vento-syntax"
       ]
     }
   }

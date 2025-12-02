@@ -30,6 +30,10 @@
     "fmt-component",
     "kv"
   ],
+  "fmt": {
+    "exclude": ["old-nextjs", "src/history/**/*.md", "**/*.vto"],
+    "proseWrap": "preserve"
+  },
   "lint": {
     "plugins": [
       "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.1/lint.ts"
