@@ -15,6 +15,7 @@ import source_maps from "lume/plugins/source_maps.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import vento from "lume/plugins/vento.ts";
 import compTag from "./lume-ext/vento_comp.ts";
+import manifest from "./lume-ext/manifest.ts";
 
 const site = lume({
   prettyUrls: false,
@@ -26,6 +27,12 @@ const site = lume({
 // site.use(checkUrls({ strict: true }));
 site.use(date());
 site.use(favicon());
+site.use(manifest({
+  name: "デジタル民主主義2030",
+  short_name: "DD2030",
+  theme_color: "#10213D",
+  background_color: "#ffffff",
+}));
 site.use(jsonLd());
 site.use(jsx());
 site.use(tailwindcss());
