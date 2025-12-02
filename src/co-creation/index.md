@@ -30,4 +30,4 @@ templateEngine: [vto, md]
 
 # コミュニティ参加前に
 
-[貢献者向けガイドライン](/contribution)をご覧ください。
+[貢献者向けガイドライン](../contribution)をご覧ください。
