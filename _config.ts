@@ -25,7 +25,7 @@ const site = lume({
 
 // site.use(checkUrls({ strict: true }));
 site.use(date());
-site.use(favicon({ input: "favicon.png" }));
+site.use(favicon());
 site.use(jsonLd());
 site.use(jsx());
 site.use(tailwindcss());

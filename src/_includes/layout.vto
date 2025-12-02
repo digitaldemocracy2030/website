@@ -19,7 +19,7 @@
     >
     <meta property="og:title" content="{{ title }} | {{ metas.site }}">
     <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="https://dd2030.org{{ url }}">
+    <meta property="og:url" content="{{ "/" |>url(true) }}">
     <meta property="og:site_name" content="{{ metas.site }}">
     <meta property="og:image" content="{{ 'ogp.png' |> url(true) }}">
     <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title }} | {{ metas.site }}">
     <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:image" content="https://dd2030.org/ogp.png">
+    <meta name="twitter:image" content="{{ 'ogp.png' |> url(true) }}">
   </head>
   <body class="bg-background text-foreground">
   {{ comp drawer }}

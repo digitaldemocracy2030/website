@@ -17,6 +17,7 @@ jsonLd:
     "@type": Organization
     name: デジタル民主主義2030
 
+slack_join_link: https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w
 footer:
   - title: Links
     items:
