@@ -1,21 +1,23 @@
 ---
-layout: page.vto
 title: プロジェクトの歴史
 description: デジタル民主主義2030プロジェクトの歴史と週ごとの活動記録
 ---
-
-<section class="mx-auto max-w-xl">
-  <h2 class="text-3xl">プロジェクトの歴史</h2>
-  <p class="mt-4">
-    デジタル民主主義2030は、2025年3月にコミュニティが立ち上がり、毎週の活動を記録しています。
+{{ for week of weeks }}
+  <h2>第{{ week.week }}週の活動</h2>
+  <p>
+    {{
+      week.date.toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }} ~
   </p>
-  <p class="mt-4">
-    詳細な活動履歴は <a
-      href="https://github.com/digitaldemocracy2030"
-      class="text-blue-600 hover:underline"
-    >GitHub</a> や <a
-      href="https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w"
-      class="text-blue-600 hover:underline"
-    >Slack</a> でご確認いただけます。
-  </p>
-</section>
+  {{ for entry of week.entries }}
+    <div class="mt-4">
+      <a href="{{ entry.url }}" class="text-blue-600 hover:underline">
+        {{ entry.subject }}
+      </a>
+    </div>
+  {{ /for }}
+{{ /for }}

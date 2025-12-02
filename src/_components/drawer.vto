@@ -1,0 +1,41 @@
+---
+menu:
+  - name: ホーム
+    url: /
+  - name: デジタル民主主義とは
+    url: /about
+  - name: 公聴AI
+    url: /kouchou-ai
+  - name: いどばた
+    url: /idobata
+  - name: Polimoney
+    url: /polimoney
+  - name: プロジェクトの歴史
+    url: /history/
+  - name: お知らせ
+    url: /news/
+---
+<div class="drawer drawer-end lg:drawer-open">
+  <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    {{ content }}
+  </div>
+  <div class="drawer-side">
+    <label
+      for="my-drawer"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+    <ul class="menu bg-base-200 min-h-full w-80 p-4 max-lg:pt-16">
+      <div id="search"></div>
+      <!-- Sidebar content here -->
+      {{ for item of menu }}
+        <li>
+          <a href="{{ item.url }}">
+            {{ item.name }}
+          </a>
+        </li>
+      {{ /for }}
+    </ul>
+  </div>
+</div>

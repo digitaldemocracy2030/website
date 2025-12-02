@@ -6,17 +6,16 @@
   "configurations": [
     {
       "request": "launch",
-      "name": "lume CMS",
+      "name": "lume build",
       "type": "node",
       "cwd": "${workspaceFolder}",
       "env": {},
-      "runtimeExecutable": "/home/vscode/deno/bin/deno",
+      "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all",
-        "./debug.ts",
-        "cms"
+        "--inspect-brk",
+        "-P=lume",
+        "lume/cli.ts"
       ],
       "attachSimplePort": 9229
     }

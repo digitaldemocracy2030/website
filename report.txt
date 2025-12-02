@@ -1,0 +1,907 @@
+{
+  "/about": [
+    "/404.html",
+    "/contribution/index.html",
+    "/history/week2_20250326/idobata.html",
+    "/history/week2_20250326/kouchou-ai.html",
+    "/history/week2_20250326/slack.html",
+    "/history/week3_20250402/idobata.html",
+    "/history/week3_20250402/kouchou-ai.html",
+    "/history/week3_20250402/slack.html",
+    "/history/week4_20250409/idobata.html",
+    "/history/week4_20250409/kouchou-ai.html",
+    "/history/week4_20250409/slack.html",
+    "/history/week4_20250409/website.html",
+    "/history/week5_20250416/idobata.html",
+    "/history/week5_20250416/kouchou-ai.html",
+    "/history/week5_20250416/polimoney.html",
+    "/history/week5_20250416/slack.html",
+    "/history/week5_20250416/website.html",
+    "/history/week6_20250423/idobata.html",
+    "/history/week6_20250423/kouchou-ai.html",
+    "/history/week6_20250423/polimoney.html",
+    "/history/week6_20250423/slack.html",
+    "/history/week6_20250423/website.html",
+    "/history/week7_20250430/idobata.html",
+    "/history/week7_20250430/kouchou-ai.html",
+    "/history/week7_20250430/polimoney.html",
+    "/history/week7_20250430/slack.html",
+    "/history/week7_20250430/website.html",
+    "/history/week8_20250507/idobata.html",
+    "/history/week8_20250507/kouchou-ai.html",
+    "/history/week8_20250507/polimoney.html",
+    "/history/week8_20250507/slack.html",
+    "/history/week8_20250507/website.html",
+    "/history/week9_20250514/idobata.html",
+    "/history/week9_20250514/kouchou-ai.html",
+    "/history/week9_20250514/polimoney.html",
+    "/history/week9_20250514/slack.html",
+    "/history/week9_20250514/website.html",
+    "/history/week10_20250521/idobata.html",
+    "/history/week10_20250521/kouchou-ai.html",
+    "/history/week10_20250521/polimoney.html",
+    "/history/week10_20250521/slack.html",
+    "/history/week10_20250521/website.html",
+    "/history/week11_20250528/idobata.html",
+    "/history/week11_20250528/kouchou-ai.html",
+    "/history/week11_20250528/polimoney.html",
+    "/history/week11_20250528/slack.html",
+    "/history/week11_20250528/website.html",
+    "/history/week12_20250604/idobata.html",
+    "/history/week12_20250604/kouchou-ai.html",
+    "/history/week12_20250604/polimoney.html",
+    "/history/week12_20250604/slack.html",
+    "/history/week12_20250604/website.html",
+    "/history/week13_20250611/idobata.html",
+    "/history/week13_20250611/kouchou-ai.html",
+    "/history/week13_20250611/polimoney.html",
+    "/history/week13_20250611/slack.html",
+    "/history/week13_20250611/website.html",
+    "/history/week14_20250618/idobata.html",
+    "/history/week14_20250618/kouchou-ai.html",
+    "/history/week14_20250618/polimoney.html",
+    "/history/week14_20250618/slack.html",
+    "/history/week14_20250618/website.html",
+    "/history/week15_20250625/idobata.html",
+    "/history/week15_20250625/kouchou-ai.html",
+    "/history/week15_20250625/polimoney.html",
+    "/history/week15_20250625/slack.html",
+    "/history/week15_20250625/website.html",
+    "/history/week16_20250702/idobata.html",
+    "/history/week16_20250702/kouchou-ai.html",
+    "/history/week16_20250702/slack.html",
+    "/history/week16_20250702/website.html",
+    "/history/week17_20250709/idobata.html",
+    "/history/week17_20250709/kouchou-ai.html",
+    "/history/week17_20250709/polimoney.html",
+    "/history/week17_20250709/slack.html",
+    "/history/week17_20250709/website.html",
+    "/history/week18_20250716/idobata.html",
+    "/history/week18_20250716/kouchou-ai.html",
+    "/history/week18_20250716/polimoney.html",
+    "/history/week18_20250716/slack.html",
+    "/history/week18_20250716/website.html",
+    "/history/week19_20250723/idobata.html",
+    "/history/week19_20250723/kouchou-ai.html",
+    "/history/week19_20250723/polimoney.html",
+    "/history/week19_20250723/slack.html",
+    "/history/week19_20250723/website.html",
+    "/history/week20_20250730/idobata.html",
+    "/history/week20_20250730/kouchou-ai.html",
+    "/history/week20_20250730/polimoney.html",
+    "/history/week20_20250730/slack.html",
+    "/history/week20_20250730/website.html",
+    "/history/week21_20250806/idobata.html",
+    "/history/week21_20250806/kouchou-ai.html",
+    "/history/week21_20250806/polimoney.html",
+    "/history/week21_20250806/slack.html",
+    "/history/week21_20250806/website.html",
+    "/history/week22_20250813/idobata.html",
+    "/history/week22_20250813/kouchou-ai.html",
+    "/history/week22_20250813/polimoney.html",
+    "/history/week22_20250813/slack.html",
+    "/history/week22_20250813/website.html",
+    "/history/week23_20250820/idobata.html",
+    "/history/week23_20250820/kouchou-ai.html",
+    "/history/week23_20250820/polimoney.html",
+    "/history/week23_20250820/slack.html",
+    "/history/week23_20250820/website.html",
+    "/history/week24_20250827/idobata.html",
+    "/history/week24_20250827/kouchou-ai.html",
+    "/history/week24_20250827/polimoney.html",
+    "/history/week24_20250827/slack.html",
+    "/history/week25_20250903/idobata.html",
+    "/history/week25_20250903/polimoney.html",
+    "/history/week25_20250903/slack.html",
+    "/history/week25_20250903/website.html",
+    "/history/week26_20250910/idobata.html",
+    "/history/week26_20250910/kouchou-ai.html",
+    "/history/week26_20250910/polimoney.html",
+    "/history/week26_20250910/slack.html",
+    "/history/week26_20250910/website.html",
+    "/history/week27_20250917/kouchou-ai.html",
+    "/history/week27_20250917/polimoney.html",
+    "/history/week27_20250917/slack.html",
+    "/history/week27_20250917/website.html",
+    "/history/week28_20250924/kouchou-ai.html",
+    "/history/week28_20250924/polimoney.html",
+    "/history/week28_20250924/slack.html",
+    "/history/week28_20250924/website.html",
+    "/history/week29_20251001/idobata.html",
+    "/history/week29_20251001/kouchou-ai.html",
+    "/history/week29_20251001/slack.html",
+    "/history/week29_20251001/website.html",
+    "/history/week30_20251008/idobata.html",
+    "/history/week30_20251008/kouchou-ai.html",
+    "/history/week30_20251008/polimoney.html",
+    "/history/week30_20251008/slack.html",
+    "/history/week30_20251008/website.html",
+    "/history/week31_20251015/idobata.html",
+    "/history/week31_20251015/kouchou-ai.html",
+    "/history/week31_20251015/slack.html",
+    "/history/week31_20251015/website.html",
+    "/history/week32_20251022/idobata.html",
+    "/history/week32_20251022/kouchou-ai.html",
+    "/history/week32_20251022/polimoney.html",
+    "/history/week32_20251022/slack.html",
+    "/history/week32_20251022/website.html",
+    "/history/week33_20251029/idobata.html",
+    "/history/week33_20251029/kouchou-ai.html",
+    "/history/week33_20251029/polimoney.html",
+    "/history/week33_20251029/slack.html",
+    "/history/week33_20251029/website.html",
+    "/history/week34_20251105/idobata.html",
+    "/history/week34_20251105/kouchou-ai.html",
+    "/history/week34_20251105/polimoney.html",
+    "/history/week34_20251105/slack.html",
+    "/history/week34_20251105/website.html",
+    "/history/week35_20251112/kouchou-ai.html",
+    "/history/week35_20251112/polimoney.html",
+    "/history/week35_20251112/slack.html",
+    "/history/week35_20251112/website.html",
+    "/history/week36_20251119/idobata.html",
+    "/history/week36_20251119/kouchou-ai.html",
+    "/history/week36_20251119/polimoney.html",
+    "/history/week36_20251119/slack.html",
+    "/history/week36_20251119/website.html",
+    "/history/week37_20251126/idobata.html",
+    "/history/week37_20251126/kouchou-ai.html",
+    "/history/week37_20251126/polimoney.html",
+    "/history/week37_20251126/slack.html",
+    "/history/week37_20251126/website.html",
+    "/history/week1_20250319/digest.html",
+    "/history/week1_20250319/idobata.html",
+    "/history/week1_20250319/kouchou-ai.html",
+    "/history/week1_20250319/slack.html",
+    "/history/index.html",
+    "/index.html",
+    "/news/index.html",
+    "/news/kouchou-ai-v2.html",
+    "/news/kouchou-ai-v3.html",
+    "/policies/privacy/index.html",
+    "/policies/terms/index.html",
+    "/polimoney/index.html",
+    "/polimoney/case.html",
+    "/about.html",
+    "/kouchou-ai/index.html",
+    "/kouchou-ai/case.html",
+    "/newcomer/index.html",
+    "/idobata/index.html",
+    "/idobata/case.html"
+  ],
+  "/case/": [
+    "/404.html",
+    "/contribution/index.html",
+    "/history/week2_20250326/idobata.html",
+    "/history/week2_20250326/kouchou-ai.html",
+    "/history/week2_20250326/slack.html",
+    "/history/week3_20250402/idobata.html",
+    "/history/week3_20250402/kouchou-ai.html",
+    "/history/week3_20250402/slack.html",
+    "/history/week4_20250409/idobata.html",
+    "/history/week4_20250409/kouchou-ai.html",
+    "/history/week4_20250409/slack.html",
+    "/history/week4_20250409/website.html",
+    "/history/week5_20250416/idobata.html",
+    "/history/week5_20250416/kouchou-ai.html",
+    "/history/week5_20250416/polimoney.html",
+    "/history/week5_20250416/slack.html",
+    "/history/week5_20250416/website.html",
+    "/history/week6_20250423/idobata.html",
+    "/history/week6_20250423/kouchou-ai.html",
+    "/history/week6_20250423/polimoney.html",
+    "/history/week6_20250423/slack.html",
+    "/history/week6_20250423/website.html",
+    "/history/week7_20250430/idobata.html",
+    "/history/week7_20250430/kouchou-ai.html",
+    "/history/week7_20250430/polimoney.html",
+    "/history/week7_20250430/slack.html",
+    "/history/week7_20250430/website.html",
+    "/history/week8_20250507/idobata.html",
+    "/history/week8_20250507/kouchou-ai.html",
+    "/history/week8_20250507/polimoney.html",
+    "/history/week8_20250507/slack.html",
+    "/history/week8_20250507/website.html",
+    "/history/week9_20250514/idobata.html",
+    "/history/week9_20250514/kouchou-ai.html",
+    "/history/week9_20250514/polimoney.html",
+    "/history/week9_20250514/slack.html",
+    "/history/week9_20250514/website.html",
+    "/history/week10_20250521/idobata.html",
+    "/history/week10_20250521/kouchou-ai.html",
+    "/history/week10_20250521/polimoney.html",
+    "/history/week10_20250521/slack.html",
+    "/history/week10_20250521/website.html",
+    "/history/week11_20250528/idobata.html",
+    "/history/week11_20250528/kouchou-ai.html",
+    "/history/week11_20250528/polimoney.html",
+    "/history/week11_20250528/slack.html",
+    "/history/week11_20250528/website.html",
+    "/history/week12_20250604/idobata.html",
+    "/history/week12_20250604/kouchou-ai.html",
+    "/history/week12_20250604/polimoney.html",
+    "/history/week12_20250604/slack.html",
+    "/history/week12_20250604/website.html",
+    "/history/week13_20250611/idobata.html",
+    "/history/week13_20250611/kouchou-ai.html",
+    "/history/week13_20250611/polimoney.html",
+    "/history/week13_20250611/slack.html",
+    "/history/week13_20250611/website.html",
+    "/history/week14_20250618/idobata.html",
+    "/history/week14_20250618/kouchou-ai.html",
+    "/history/week14_20250618/polimoney.html",
+    "/history/week14_20250618/slack.html",
+    "/history/week14_20250618/website.html",
+    "/history/week15_20250625/idobata.html",
+    "/history/week15_20250625/kouchou-ai.html",
+    "/history/week15_20250625/polimoney.html",
+    "/history/week15_20250625/slack.html",
+    "/history/week15_20250625/website.html",
+    "/history/week16_20250702/idobata.html",
+    "/history/week16_20250702/kouchou-ai.html",
+    "/history/week16_20250702/slack.html",
+    "/history/week16_20250702/website.html",
+    "/history/week17_20250709/idobata.html",
+    "/history/week17_20250709/kouchou-ai.html",
+    "/history/week17_20250709/polimoney.html",
+    "/history/week17_20250709/slack.html",
+    "/history/week17_20250709/website.html",
+    "/history/week18_20250716/idobata.html",
+    "/history/week18_20250716/kouchou-ai.html",
+    "/history/week18_20250716/polimoney.html",
+    "/history/week18_20250716/slack.html",
+    "/history/week18_20250716/website.html",
+    "/history/week19_20250723/idobata.html",
+    "/history/week19_20250723/kouchou-ai.html",
+    "/history/week19_20250723/polimoney.html",
+    "/history/week19_20250723/slack.html",
+    "/history/week19_20250723/website.html",
+    "/history/week20_20250730/idobata.html",
+    "/history/week20_20250730/kouchou-ai.html",
+    "/history/week20_20250730/polimoney.html",
+    "/history/week20_20250730/slack.html",
+    "/history/week20_20250730/website.html",
+    "/history/week21_20250806/idobata.html",
+    "/history/week21_20250806/kouchou-ai.html",
+    "/history/week21_20250806/polimoney.html",
+    "/history/week21_20250806/slack.html",
+    "/history/week21_20250806/website.html",
+    "/history/week22_20250813/idobata.html",
+    "/history/week22_20250813/kouchou-ai.html",
+    "/history/week22_20250813/polimoney.html",
+    "/history/week22_20250813/slack.html",
+    "/history/week22_20250813/website.html",
+    "/history/week23_20250820/idobata.html",
+    "/history/week23_20250820/kouchou-ai.html",
+    "/history/week23_20250820/polimoney.html",
+    "/history/week23_20250820/slack.html",
+    "/history/week23_20250820/website.html",
+    "/history/week24_20250827/idobata.html",
+    "/history/week24_20250827/kouchou-ai.html",
+    "/history/week24_20250827/polimoney.html",
+    "/history/week24_20250827/slack.html",
+    "/history/week25_20250903/idobata.html",
+    "/history/week25_20250903/polimoney.html",
+    "/history/week25_20250903/slack.html",
+    "/history/week25_20250903/website.html",
+    "/history/week26_20250910/idobata.html",
+    "/history/week26_20250910/kouchou-ai.html",
+    "/history/week26_20250910/polimoney.html",
+    "/history/week26_20250910/slack.html",
+    "/history/week26_20250910/website.html",
+    "/history/week27_20250917/kouchou-ai.html",
+    "/history/week27_20250917/polimoney.html",
+    "/history/week27_20250917/slack.html",
+    "/history/week27_20250917/website.html",
+    "/history/week28_20250924/kouchou-ai.html",
+    "/history/week28_20250924/polimoney.html",
+    "/history/week28_20250924/slack.html",
+    "/history/week28_20250924/website.html",
+    "/history/week29_20251001/idobata.html",
+    "/history/week29_20251001/kouchou-ai.html",
+    "/history/week29_20251001/slack.html",
+    "/history/week29_20251001/website.html",
+    "/history/week30_20251008/idobata.html",
+    "/history/week30_20251008/kouchou-ai.html",
+    "/history/week30_20251008/polimoney.html",
+    "/history/week30_20251008/slack.html",
+    "/history/week30_20251008/website.html",
+    "/history/week31_20251015/idobata.html",
+    "/history/week31_20251015/kouchou-ai.html",
+    "/history/week31_20251015/slack.html",
+    "/history/week31_20251015/website.html",
+    "/history/week32_20251022/idobata.html",
+    "/history/week32_20251022/kouchou-ai.html",
+    "/history/week32_20251022/polimoney.html",
+    "/history/week32_20251022/slack.html",
+    "/history/week32_20251022/website.html",
+    "/history/week33_20251029/idobata.html",
+    "/history/week33_20251029/kouchou-ai.html",
+    "/history/week33_20251029/polimoney.html",
+    "/history/week33_20251029/slack.html",
+    "/history/week33_20251029/website.html",
+    "/history/week34_20251105/idobata.html",
+    "/history/week34_20251105/kouchou-ai.html",
+    "/history/week34_20251105/polimoney.html",
+    "/history/week34_20251105/slack.html",
+    "/history/week34_20251105/website.html",
+    "/history/week35_20251112/kouchou-ai.html",
+    "/history/week35_20251112/polimoney.html",
+    "/history/week35_20251112/slack.html",
+    "/history/week35_20251112/website.html",
+    "/history/week36_20251119/idobata.html",
+    "/history/week36_20251119/kouchou-ai.html",
+    "/history/week36_20251119/polimoney.html",
+    "/history/week36_20251119/slack.html",
+    "/history/week36_20251119/website.html",
+    "/history/week37_20251126/idobata.html",
+    "/history/week37_20251126/kouchou-ai.html",
+    "/history/week37_20251126/polimoney.html",
+    "/history/week37_20251126/slack.html",
+    "/history/week37_20251126/website.html",
+    "/history/week1_20250319/digest.html",
+    "/history/week1_20250319/idobata.html",
+    "/history/week1_20250319/kouchou-ai.html",
+    "/history/week1_20250319/slack.html",
+    "/history/index.html",
+    "/index.html",
+    "/news/index.html",
+    "/news/kouchou-ai-v2.html",
+    "/news/kouchou-ai-v3.html",
+    "/policies/privacy/index.html",
+    "/policies/terms/index.html",
+    "/polimoney/index.html",
+    "/polimoney/case.html",
+    "/about.html",
+    "/kouchou-ai/index.html",
+    "/kouchou-ai/case.html",
+    "/newcomer/index.html",
+    "/idobata/index.html",
+    "/idobata/case.html"
+  ],
+  "/history/week37_20251126/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week37_20251126/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week37_20251126/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week37_20251126/slack": [
+    "/history/index.html"
+  ],
+  "/history/week37_20251126/website": [
+    "/history/index.html"
+  ],
+  "/history/week36_20251119/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week36_20251119/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week36_20251119/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week36_20251119/slack": [
+    "/history/index.html"
+  ],
+  "/history/week36_20251119/website": [
+    "/history/index.html"
+  ],
+  "/history/week35_20251112/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week35_20251112/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week35_20251112/slack": [
+    "/history/index.html"
+  ],
+  "/history/week35_20251112/website": [
+    "/history/index.html"
+  ],
+  "/history/week34_20251105/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week34_20251105/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week34_20251105/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week34_20251105/slack": [
+    "/history/index.html"
+  ],
+  "/history/week34_20251105/website": [
+    "/history/index.html"
+  ],
+  "/history/week33_20251029/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week33_20251029/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week33_20251029/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week33_20251029/slack": [
+    "/history/index.html"
+  ],
+  "/history/week33_20251029/website": [
+    "/history/index.html"
+  ],
+  "/history/week32_20251022/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week32_20251022/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week32_20251022/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week32_20251022/slack": [
+    "/history/index.html"
+  ],
+  "/history/week32_20251022/website": [
+    "/history/index.html"
+  ],
+  "/history/week31_20251015/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week31_20251015/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week31_20251015/slack": [
+    "/history/index.html"
+  ],
+  "/history/week31_20251015/website": [
+    "/history/index.html"
+  ],
+  "/history/week30_20251008/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week30_20251008/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week30_20251008/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week30_20251008/slack": [
+    "/history/index.html"
+  ],
+  "/history/week30_20251008/website": [
+    "/history/index.html"
+  ],
+  "/history/week29_20251001/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week29_20251001/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week29_20251001/slack": [
+    "/history/index.html"
+  ],
+  "/history/week29_20251001/website": [
+    "/history/index.html"
+  ],
+  "/history/week28_20250924/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week28_20250924/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week28_20250924/slack": [
+    "/history/index.html"
+  ],
+  "/history/week28_20250924/website": [
+    "/history/index.html"
+  ],
+  "/history/week27_20250917/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week27_20250917/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week27_20250917/slack": [
+    "/history/index.html"
+  ],
+  "/history/week27_20250917/website": [
+    "/history/index.html"
+  ],
+  "/history/week26_20250910/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week26_20250910/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week26_20250910/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week26_20250910/slack": [
+    "/history/index.html"
+  ],
+  "/history/week26_20250910/website": [
+    "/history/index.html"
+  ],
+  "/history/week25_20250903/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week25_20250903/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week25_20250903/slack": [
+    "/history/index.html"
+  ],
+  "/history/week25_20250903/website": [
+    "/history/index.html"
+  ],
+  "/history/week24_20250827/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week24_20250827/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week24_20250827/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week24_20250827/slack": [
+    "/history/index.html"
+  ],
+  "/history/week23_20250820/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week23_20250820/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week23_20250820/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week23_20250820/slack": [
+    "/history/index.html"
+  ],
+  "/history/week23_20250820/website": [
+    "/history/index.html"
+  ],
+  "/history/week22_20250813/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week22_20250813/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week22_20250813/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week22_20250813/slack": [
+    "/history/index.html"
+  ],
+  "/history/week22_20250813/website": [
+    "/history/index.html"
+  ],
+  "/history/week21_20250806/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week21_20250806/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week21_20250806/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week21_20250806/slack": [
+    "/history/index.html"
+  ],
+  "/history/week21_20250806/website": [
+    "/history/index.html"
+  ],
+  "/history/week20_20250730/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week20_20250730/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week20_20250730/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week20_20250730/slack": [
+    "/history/index.html"
+  ],
+  "/history/week20_20250730/website": [
+    "/history/index.html"
+  ],
+  "/history/week19_20250723/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week19_20250723/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week19_20250723/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week19_20250723/slack": [
+    "/history/index.html"
+  ],
+  "/history/week19_20250723/website": [
+    "/history/index.html"
+  ],
+  "/history/week18_20250716/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week18_20250716/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week18_20250716/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week18_20250716/slack": [
+    "/history/index.html"
+  ],
+  "/history/week18_20250716/website": [
+    "/history/index.html"
+  ],
+  "/history/week17_20250709/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week17_20250709/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week17_20250709/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week17_20250709/slack": [
+    "/history/index.html"
+  ],
+  "/history/week17_20250709/website": [
+    "/history/index.html"
+  ],
+  "/history/week16_20250702/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week16_20250702/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week16_20250702/slack": [
+    "/history/index.html"
+  ],
+  "/history/week16_20250702/website": [
+    "/history/index.html"
+  ],
+  "/history/week15_20250625/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week15_20250625/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week15_20250625/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week15_20250625/slack": [
+    "/history/index.html"
+  ],
+  "/history/week15_20250625/website": [
+    "/history/index.html"
+  ],
+  "/history/week14_20250618/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week14_20250618/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week14_20250618/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week14_20250618/slack": [
+    "/history/index.html"
+  ],
+  "/history/week14_20250618/website": [
+    "/history/index.html"
+  ],
+  "/history/week13_20250611/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week13_20250611/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week13_20250611/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week13_20250611/slack": [
+    "/history/index.html"
+  ],
+  "/history/week13_20250611/website": [
+    "/history/index.html"
+  ],
+  "/history/week12_20250604/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week12_20250604/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week12_20250604/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week12_20250604/slack": [
+    "/history/index.html"
+  ],
+  "/history/week12_20250604/website": [
+    "/history/index.html"
+  ],
+  "/history/week11_20250528/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week11_20250528/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week11_20250528/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week11_20250528/slack": [
+    "/history/index.html"
+  ],
+  "/history/week11_20250528/website": [
+    "/history/index.html"
+  ],
+  "/history/week10_20250521/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week10_20250521/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week10_20250521/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week10_20250521/slack": [
+    "/history/index.html"
+  ],
+  "/history/week10_20250521/website": [
+    "/history/index.html"
+  ],
+  "/history/week9_20250514/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week9_20250514/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week9_20250514/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week9_20250514/slack": [
+    "/history/index.html"
+  ],
+  "/history/week9_20250514/website": [
+    "/history/index.html"
+  ],
+  "/history/week8_20250507/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week8_20250507/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week8_20250507/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week8_20250507/slack": [
+    "/history/index.html"
+  ],
+  "/history/week8_20250507/website": [
+    "/history/index.html"
+  ],
+  "/history/week7_20250430/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week7_20250430/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week7_20250430/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week7_20250430/slack": [
+    "/history/index.html"
+  ],
+  "/history/week7_20250430/website": [
+    "/history/index.html"
+  ],
+  "/history/week6_20250423/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week6_20250423/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week6_20250423/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week6_20250423/slack": [
+    "/history/index.html"
+  ],
+  "/history/week6_20250423/website": [
+    "/history/index.html"
+  ],
+  "/history/week5_20250416/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week5_20250416/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week5_20250416/polimoney": [
+    "/history/index.html"
+  ],
+  "/history/week5_20250416/slack": [
+    "/history/index.html"
+  ],
+  "/history/week5_20250416/website": [
+    "/history/index.html"
+  ],
+  "/history/week4_20250409/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week4_20250409/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week4_20250409/slack": [
+    "/history/index.html"
+  ],
+  "/history/week4_20250409/website": [
+    "/history/index.html"
+  ],
+  "/history/week3_20250402/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week3_20250402/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week3_20250402/slack": [
+    "/history/index.html"
+  ],
+  "/history/week2_20250326/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week2_20250326/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week2_20250326/slack": [
+    "/history/index.html"
+  ],
+  "/history/week1_20250319/digest": [
+    "/history/index.html"
+  ],
+  "/history/week1_20250319/idobata": [
+    "/history/index.html"
+  ],
+  "/history/week1_20250319/kouchou-ai": [
+    "/history/index.html"
+  ],
+  "/history/week1_20250319/slack": [
+    "/history/index.html"
+  ],
+  "/kouchou-ai/case": [
+    "/index.html",
+    "/kouchou-ai/index.html"
+  ],
+  "/case/idobata": [
+    "/index.html",
+    "/idobata/index.html"
+  ],
+  "/case/polimoney": [
+    "/index.html",
+    "/polimoney/index.html"
+  ]
+}

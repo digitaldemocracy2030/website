@@ -1,11 +1,11 @@
 ---
+type: index
 layout: page.vto
 title: お知らせ
 description: デジタル民主主義2030プロジェクトからのお知らせ
 ---
 
 <div class="mx-auto max-w-xl mt-10">
-  <h1 class="text-3xl font-bold mb-8">お知らせ</h1>
   <ul class="space-y-4">
     {{ for entry of search.pages("type=news", "published=desc") }}
       <li class="border-b pb-4">
@@ -15,7 +15,7 @@ description: デジタル民主主義2030プロジェクトからのお知らせ
         <p class="text-gray-600 mt-1">
           {{ entry.published |> date("y年M月d日") }}
         </p>
-        <p class="mt-2">{{ entry.excerpt }}</p>
+        <p class="mt-2">{{ entry.description }}</p>
       </li>
     {{ /for }}
   </ul>

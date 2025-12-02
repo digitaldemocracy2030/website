@@ -32,7 +32,6 @@ deno task build
 ├── _config.ts        # Lume設定ファイル
 ├── _cms.ts           # LumeCMS設定ファイル
 ├── deno.json         # Deno設定ファイル
-├── debug.ts          # デバッグ用エントリーポイント
 ├── src/              # ソースファイル
 │   ├── _data.yml     # グローバルデータ
 │   ├── _includes/    # テンプレート
