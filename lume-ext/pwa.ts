@@ -11,12 +11,7 @@ export interface ManifestOptions {
    * The input file to generate the icons
    * Accepted formats are SVG, PNG, JPG, GIF, BMP, TIFF, WEBP
    */
-  input?: string | Record<number, string>;
-
-  /**
-   * The output path for the manifest.json file
-   */
-  output?: string;
+  icon_input?: string | Record<number, string>;
 
   /**
    * The manifest configuration
@@ -35,6 +30,7 @@ export interface ManifestOptions {
    * https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
    */
   icons?: ManifestIcon[];
+  shortcuts?: ManifestShortcut[];
 }
 
 export interface ManifestIcon {
@@ -45,8 +41,7 @@ export interface ManifestIcon {
 }
 
 export const defaults: ManifestOptions = {
-  input: "/favicon.svg",
-  output: "/app.webmanifest",
+  icon_input: "/favicon.svg",
   name: undefined,
   short_name: undefined,
   theme_color: "#ffffff",
@@ -66,6 +61,13 @@ interface ManifestIconEntry {
   type: string;
   purpose?: string;
 }
+interface ManifestShortcut {
+  name: string;
+  short_name?: string;
+  description?: string;
+  url: string;
+  icons?: ManifestIconEntry[];
+}
 
 interface Manifest {
   name?: string;
@@ -76,7 +78,10 @@ interface Manifest {
   start_url?: string;
   scope?: string;
   icons: ManifestIconEntry[];
+  shortcuts?: ManifestShortcut[];
 }
+
+const appManifestFilename = "/app.webmanifest";
 
 const appleIcon = {
   size: 180,
@@ -90,9 +95,9 @@ const appleIcon = {
 export function manifest(userOptions?: ManifestOptions) {
   const options = merge(defaults, userOptions);
   // Use 512 as default size since that's the largest icon we generate
-  const input = typeof options.input === "string"
-    ? { 512: options.input }
-    : options.input;
+  const input = typeof options.icon_input === "string"
+    ? { 512: options.icon_input }
+    : options.icon_input;
 
   return (site: Site) => {
     async function getContent(
@@ -181,33 +186,26 @@ export function manifest(userOptions?: ManifestOptions) {
         icons: manifestIcons,
       };
 
-      if (options.name) {
-        manifestContent.name = options.name;
-      }
-      if (options.short_name) {
-        manifestContent.short_name = options.short_name;
-      }
+      if (options.name) manifestContent.name = options.name;
+      if (options.short_name) manifestContent.short_name = options.short_name;
       if (options.theme_color) {
         manifestContent.theme_color = options.theme_color;
       }
       if (options.background_color) {
         manifestContent.background_color = options.background_color;
       }
-      if (options.display) {
-        manifestContent.display = options.display;
-      }
+      if (options.display) manifestContent.display = options.display;
       if (options.start_url) {
         manifestContent.start_url = options.start_url;
       } else {
         manifestContent.start_url = site.options.location.pathname;
       }
-      if (options.scope) {
-        manifestContent.scope = options.scope;
-      }
+      if (options.scope) manifestContent.scope = options.scope;
+      if (options.shortcuts) manifestContent.shortcuts = options.shortcuts;
 
       pages.push(
         Page.create({
-          url: options.output,
+          url: appManifestFilename,
           content: JSON.stringify(manifestContent, null, 2),
         }),
       );
@@ -227,7 +225,7 @@ export function manifest(userOptions?: ManifestOptions) {
         // Add manifest link
         addElementToHead(document, "link", {
           rel: "manifest",
-          href: site.url(options.output!),
+          href: site.url(appManifestFilename),
         });
 
         // Add theme-color meta tag if specified

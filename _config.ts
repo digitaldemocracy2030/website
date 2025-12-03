@@ -15,7 +15,7 @@ import source_maps from "lume/plugins/source_maps.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import vento from "lume/plugins/vento.ts";
 import compTag from "./lume-ext/vento_comp.ts";
-import manifest from "./lume-ext/manifest.ts";
+import pwa from "./lume-ext/pwa.ts";
 
 const site = lume({
   prettyUrls: false,
@@ -36,17 +36,25 @@ site.use(favicon({
     },
   ],
 }));
-site.use(manifest({
+site.use(pwa({
   name: "デジタル民主主義2030",
   short_name: "DD2030",
   theme_color: "#10213D",
   background_color: "#ffffff",
+  shortcuts: [
+    {
+      name: "お知らせ",
+      short_name: "お知らせ",
+      url: "/news/",
+    },
+  ],
 }));
 site.use(jsonLd());
 site.use(jsx());
 site.use(tailwindcss());
 site.use(source_maps());
 site.use(picture());
+site.use(metas());
 site.use(inline());
 site.use(feed({
   output: ["feed.rss", "feed.json"],
@@ -56,7 +64,6 @@ site.use(feed({
     description: "=description",
   },
 }));
-site.use(metas());
 site.use(nav());
 site.use(pagefind());
 site.add("style/main.css");
