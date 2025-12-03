@@ -6,6 +6,7 @@ import sharp, { create } from "lume/deps/sharp.ts";
 import type Site from "lume/core/site.ts";
 import type Cache from "lume/core/cache.ts";
 
+export type SharpModifier = (input: sharp.Sharp) => sharp.Sharp;
 export interface ManifestOptions {
   /**
    * The input file to generate the icons
@@ -37,7 +38,7 @@ export interface ManifestIcon {
   size: number;
   format?: "png" | "webp";
   purpose?: "any" | "maskable" | "monochrome" | "maskable monochrome";
-  fn?: (input: sharp.Sharp) => sharp.Sharp;
+  fn?: SharpModifier;
 }
 
 export const defaults: ManifestOptions = {
@@ -87,7 +88,7 @@ const appleIcon = {
   size: 180,
   path: "/apple-touch-icon.png",
   format: "png",
-};
+} as const;
 /**
  * A plugin to generate a web app manifest and icons from an SVG or PNG file
  * @see https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
@@ -146,7 +147,7 @@ export function manifest(userOptions?: ManifestOptions) {
             url,
             content: await buildIcon(
               content,
-              format as keyof sharp.FormatEnum,
+              format,
               icon.size,
               cache,
               icon.fn,
@@ -173,9 +174,17 @@ export function manifest(userOptions?: ManifestOptions) {
             url: appleIcon.path,
             content: await buildIcon(
               content,
-              appleIcon.format as keyof sharp.FormatEnum,
-              appleIcon.size,
+              appleIcon.format,
+              appleIcon.size - 20,
               cache,
+              (img) =>
+                img.flatten({ background: "#ffffff" }).extend({
+                  top: 10,
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
+                  background: "#ffffff",
+                }),
             ),
           }),
         );
