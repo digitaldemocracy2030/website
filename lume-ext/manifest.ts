@@ -41,6 +41,7 @@ export interface ManifestIcon {
   size: number;
   format?: "png" | "webp";
   purpose?: "any" | "maskable" | "any maskable";
+  fn?: (input: sharp.Sharp) => sharp.Sharp;
 }
 
 export const defaults: ManifestOptions = {
@@ -138,6 +139,7 @@ export function manifest(userOptions?: ManifestOptions) {
               format as keyof sharp.FormatEnum,
               icon.size,
               cache,
+              icon.fn,
             ),
           }),
         );
@@ -221,6 +223,7 @@ async function buildIcon(
   format: keyof sharp.FormatEnum,
   size: number,
   cache?: Cache,
+  fn?: (input: sharp.Sharp) => sharp.Sharp,
 ): Promise<Uint8Array> {
   if (cache) {
     const result = await cache.getBytes([content, format, size, "manifest"]);
@@ -234,10 +237,11 @@ async function buildIcon(
     fitTo: { mode: "width", value: size },
   } as const;
 
-  const image = await create(content, undefined, svgOptions)
+  let image_ = create(content, undefined, svgOptions)
     .resize(size, size)
-    .toFormat(format)
-    .toBuffer();
+  if (fn) image_ = fn(image_);
+
+  const image = await image_.toFormat(format).toBuffer();
 
   if (cache) {
     cache.set([content, format, size, "manifest"], image);
