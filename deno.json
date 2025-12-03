@@ -34,7 +34,8 @@
     "exclude": [
       "old-nextjs",
       "src/history/**/*.md",
-      "**/*.vto"
+      "**/*.vto",
+      "**/*.svg"
     ],
     "proseWrap": "preserve"
   },

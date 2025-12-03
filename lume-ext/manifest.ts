@@ -57,7 +57,6 @@ export const defaults: ManifestOptions = {
   icons: [
     { size: 192, format: "png" },
     { size: 512, format: "png" },
-    { size: 120, format: "png", fn: (img) => img.flatten({ background: '#ffffff' }).extend({ top: 10, bottom: 10, left: 10, right: 10, background: '#ffffff' }) },
   ],
 };
 
@@ -79,6 +78,11 @@ interface Manifest {
   icons: ManifestIconEntry[];
 }
 
+const appleIcon = {
+  size: 180,
+  path: "/apple-touch-icon.png",
+  format: "png",
+};
 /**
  * A plugin to generate a web app manifest and icons from an SVG or PNG file
  * @see https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
@@ -129,7 +133,7 @@ export function manifest(userOptions?: ManifestOptions) {
           continue;
         }
         const format = icon.format || "png";
-        const url = getIconUrl(icon.size, format);
+        const url = `/icon-${icon.size}x${icon.size}.${format}`;
 
         // Generate the icon image
         pages.push(
@@ -155,6 +159,21 @@ export function manifest(userOptions?: ManifestOptions) {
           iconEntry.purpose = icon.purpose;
         }
         manifestIcons.push(iconEntry);
+      }
+      {
+        // Generate apple-touch-icon
+        const content = getBestContent(contents, [appleIcon.size])!;
+        pages.push(
+          Page.create({
+            url: appleIcon.path,
+            content: await buildIcon(
+              content,
+              appleIcon.format as keyof sharp.FormatEnum,
+              appleIcon.size,
+              cache,
+            ),
+          }),
+        );
       }
 
       // Generate the manifest.json file
@@ -199,6 +218,12 @@ export function manifest(userOptions?: ManifestOptions) {
       for (const page of pages) {
         const { document } = page;
 
+        // Add apple-touch-icon link
+        addElementToHead(document, "link", {
+          rel: "apple-touch-icon",
+          href: site.url(appleIcon.path),
+        });
+
         // Add manifest link
         addElementToHead(document, "link", {
           rel: "manifest",
@@ -210,15 +235,6 @@ export function manifest(userOptions?: ManifestOptions) {
           addElementToHead(document, "meta", {
             name: "theme-color",
             content: options.theme_color,
-          });
-        }
-        // Add apple-touch-icon link
-        const appleIcon = options.icons!.find((icon) => icon.size === 120);
-        if (appleIcon) {
-          const format = appleIcon.format || "png";
-          addElementToHead(document, "link", {
-            rel: "apple-touch-icon",
-            href: site.url(getIconUrl(120, format)),
           });
         }
       }
@@ -245,7 +261,7 @@ async function buildIcon(
     fitTo: { mode: "width", value: size },
   } as const;
 
-  let image_ = create(content, undefined, svgOptions)
+  let image_ = create(content, undefined, svgOptions);
   if (fn) image_ = fn(image_);
 
   const image = await image_.resize(size, size).toFormat(format).toBuffer();
@@ -255,10 +271,6 @@ async function buildIcon(
   }
 
   return image;
-}
-
-function getIconUrl(size: number, format: string): string {
-  return `/icon-${size}x${size}.${format}`;
 }
 
 function getBestContent(

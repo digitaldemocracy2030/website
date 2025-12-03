@@ -33,7 +33,8 @@ site.use(favicon({
       size: [32],
       rel: "icon",
       format: "ico",
-    }]
+    },
+  ],
 }));
 site.use(manifest({
   name: "デジタル民主主義2030",
