@@ -26,7 +26,15 @@ const site = lume({
 
 // site.use(checkUrls({ strict: true }));
 site.use(date());
-site.use(favicon());
+site.use(favicon({
+  favicons: [
+    {
+      url: "/favicon.ico",
+      size: [32],
+      rel: "icon",
+      format: "ico",
+    }]
+}));
 site.use(manifest({
   name: "デジタル民主主義2030",
   short_name: "DD2030",

@@ -40,13 +40,13 @@ export interface ManifestOptions {
 export interface ManifestIcon {
   size: number;
   format?: "png" | "webp";
-  purpose?: "any" | "maskable" | "any maskable";
+  purpose?: "any" | "maskable" | "monochrome" | "maskable monochrome";
   fn?: (input: sharp.Sharp) => sharp.Sharp;
 }
 
 export const defaults: ManifestOptions = {
   input: "/favicon.svg",
-  output: "/manifest.json",
+  output: "/app.webmanifest",
   name: undefined,
   short_name: undefined,
   theme_color: "#ffffff",
@@ -55,8 +55,9 @@ export const defaults: ManifestOptions = {
   start_url: undefined,
   scope: undefined,
   icons: [
-    { size: 192, format: "png", purpose: "any" },
-    { size: 512, format: "png", purpose: "any" },
+    { size: 192, format: "png" },
+    { size: 512, format: "png" },
+    { size: 120, format: "png", fn: (img) => img.flatten({ background: '#ffffff' }).extend({ top: 10, bottom: 10, left: 10, right: 10, background: '#ffffff' }) },
   ],
 };
 
@@ -128,7 +129,7 @@ export function manifest(userOptions?: ManifestOptions) {
           continue;
         }
         const format = icon.format || "png";
-        const url = `/icon-${icon.size}x${icon.size}.${format}`;
+        const url = getIconUrl(icon.size, format);
 
         // Generate the icon image
         pages.push(
@@ -199,19 +200,26 @@ export function manifest(userOptions?: ManifestOptions) {
         const { document } = page;
 
         // Add manifest link
-        const link = document.createElement("link");
-        link.setAttribute("rel", "manifest");
-        link.setAttribute("href", site.url(options.output!));
-        document.head.appendChild(link);
-        document.head.appendChild(document.createTextNode("\n"));
+        addElementToHead(document, "link", {
+          rel: "manifest",
+          href: site.url(options.output!),
+        });
 
         // Add theme-color meta tag if specified
         if (options.theme_color) {
-          const meta = document.createElement("meta");
-          meta.setAttribute("name", "theme-color");
-          meta.setAttribute("content", options.theme_color);
-          document.head.appendChild(meta);
-          document.head.appendChild(document.createTextNode("\n"));
+          addElementToHead(document, "meta", {
+            name: "theme-color",
+            content: options.theme_color,
+          });
+        }
+        // Add apple-touch-icon link
+        const appleIcon = options.icons!.find((icon) => icon.size === 120);
+        if (appleIcon) {
+          const format = appleIcon.format || "png";
+          addElementToHead(document, "link", {
+            rel: "apple-touch-icon",
+            href: site.url(getIconUrl(120, format)),
+          });
         }
       }
     });
@@ -238,16 +246,19 @@ async function buildIcon(
   } as const;
 
   let image_ = create(content, undefined, svgOptions)
-    .resize(size, size)
   if (fn) image_ = fn(image_);
 
-  const image = await image_.toFormat(format).toBuffer();
+  const image = await image_.resize(size, size).toFormat(format).toBuffer();
 
   if (cache) {
     cache.set([content, format, size, "manifest"], image);
   }
 
   return image;
+}
+
+function getIconUrl(size: number, format: string): string {
+  return `/icon-${size}x${size}.${format}`;
 }
 
 function getBestContent(
@@ -270,6 +281,19 @@ function getBestContent(
   }
 
   return content[bestSize];
+}
+
+function addElementToHead(
+  document: Document,
+  tagName: string,
+  attributes: Record<string, string>,
+): void {
+  const element = document.createElement(tagName);
+  for (const [key, value] of Object.entries(attributes)) {
+    element.setAttribute(key, value);
+  }
+  document.head.appendChild(element);
+  document.head.appendChild(document.createTextNode("\n"));
 }
 
 export default manifest;
