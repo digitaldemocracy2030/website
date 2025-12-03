@@ -1,19 +1,17 @@
-import site from "./_config.ts"
+import site from "./_config.ts";
 import cms from "./_cms.ts";
-console.log(site.options.server)
 
 import { log } from "lume/core/utils/log.ts";
-import { localIp, openBrowser } from "lume/core/utils/net.ts";
+import { localIp } from "lume/core/utils/net.ts";
 import { env, setEnv } from "lume/core/utils/env.ts";
 import { SiteWatcher } from "lume/core/watcher.ts";
 import logger from "lume/middlewares/logger.ts";
 import noCache from "lume/middlewares/no_cache.ts";
 import noCors from "lume/middlewares/no_cors.ts";
 import reload from "lume/middlewares/reload.ts";
-import { buildSite } from "lume/cli/utils.ts";
 import lumeCMS from "lume/plugins/lume_cms.ts";
 
-async function build() {
+function build() {
   // Set the live reload environment variable to add hash to the URLs in the module loader
   setEnv("LUME_LIVE_RELOAD", "true");
 
@@ -25,21 +23,18 @@ async function build() {
 
   // Setup LumeCMS
   {
-      const isProduction = env<boolean>("LUME_PROXIED");
-      site.use(lumeCMS({
-        cms,
-        protectSite: isProduction,
-      }));
+    const isProduction = env<boolean>("LUME_PROXIED");
+    site.use(lumeCMS({
+      cms,
+      protectSite: isProduction,
+    }));
   }
 
-  // Include the config files to the watcher
-  const reloadFiles: string[] = [];
-
-  try {
-    await buildSite(site);
-  } catch (error) {
-    console.error(Deno.inspect(error, { colors: true }));
-  }
+  // try {
+  //   await buildSite(site);
+  // } catch (error) {
+  //   console.error(Deno.inspect(error, { colors: true }));
+  // }
 
   // Start the watcher
   const watcher = site.getWatcher();
@@ -52,13 +47,6 @@ async function build() {
       log.info(`- <gray>${file}</gray>`);
     });
 
-    // If the config files have changed, reload the build process
-    if (reloadFiles.some((file) => files.has(file))) {
-      log.info("Reloading the site...");
-      postMessage({ type: "reload" });
-      return;
-    }
-
     return site.update(files);
   });
 
@@ -70,7 +58,7 @@ async function build() {
 
   // Start the local server
   const server = site.getServer();
-  const { port, hostname, open } = site.options.server;
+  const { port, hostname } = site.options.server;
 
   server.addEventListener("start", () => {
     {
@@ -96,10 +84,6 @@ async function build() {
           );
         }
       }
-
-      if (open) {
-        openBrowser(`http://${hostname}:${port}/`);
-      }
     }
 
     site.dispatchEvent({ type: "afterStartServer" });
@@ -118,7 +102,7 @@ async function build() {
       if (response.headers.get("X-Lume-CMS") === "reload") {
         log.info("Reloading the site...");
         const url = response.headers.get("Location") || request.url;
-        postMessage({ type: "reload" });
+        await site.build();
         return createWaitResponse(url);
       }
 
@@ -130,7 +114,6 @@ async function build() {
     reload({
       watcher: new SiteWatcher(site),
       basepath: site.options.location.pathname,
-      debugBar: site.debugBar,
     }),
     noCache(),
     noCors(),
