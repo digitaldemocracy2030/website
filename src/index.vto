@@ -1,0 +1,166 @@
+---
+layout: layout.vto
+noindex: true
+url: /
+title: ホーム
+description: デジタル民主主義2030プロジェクトポータルサイト
+---
+<div>
+  <p
+    class="text-4xl sm:text-5xl flex flex-col gap-5 items-start font-bold py-12 mx-auto max-w-xl"
+  >
+    <span class="box-decoration-clone gradient block py-1 px-2"
+    >みんなで創る、</span>
+    <span class="box-decoration-clone gradient block py-1 px-2"
+    >みんなの未来。</span>
+  </p>
+  <section class="mx-auto max-w-xl">
+    <h2 class="text-3xl">デジタル民主主義2030とは</h2>
+    <p class="max-w-xl mt-4">
+      「デジタル民主主義2030」は、技術の力で市民の声を活かし、政治をより良い形に進化させることを目指したプロジェクトです。透明性と信頼を重視し、多くの人々が政策に参加できる未来を目指しています。
+    </p>
+    <div class="mt-4 flex gap-4 flex-wrap">
+      <a href="./about" class="btn btn-primary">
+        もっと詳しく →
+      </a>
+      <a href="./newcomer" class="btn btn-primary">
+        初めての方へ →
+      </a>
+    </div>
+  </section>
+  <section class="mx-auto max-w-xl mt-20">
+    <h2 class="text-3xl">3つの取り組み</h2>
+    <section class="mt-8">
+      <hgroup class="flex gap-2 flex-wrap">
+        <div class="gradient w-1"></div>
+        <div class="w-[calc(100%-12px)]">
+          <h3 class="text-2xl">広聴AI</h3>
+          <p class="font-bold mt-2">
+            ブロードリスニングのさらなる進展：Talk to the City の実用化
+          </p>
+        </div>
+      </hgroup>
+      <img
+        src="kouchou-ai/home__3project__kouchou-ai.webp"
+        width="576"
+        height="262"
+        alt="広聴AIのイメージ画像"
+        class="w-full"
+      />
+      <p>
+        ブロードリスニングとは、多様な市民の声を広く収集・可視化し、意思決定に役立てようとする取り組みで、我々は「Talk
+        to the
+        City（TTTC）」というオープンソースのAI分析ツールを改良してこれを実現しようとしています。
+      </p>
+      <div class="flex gap-4 mt-4">
+        <a href="./kouchou-ai" class="btn btn-primary">
+          もっと詳しく →
+        </a>
+        <a href="./kouchou-ai/case" class="btn btn-primary">
+          活用事例 →
+        </a>
+      </div>
+    </section>
+    <section class="mt-16">
+      <hgroup class="flex gap-2 flex-wrap">
+        <div class="gradient w-1"></div>
+        <div class="w-[calc(100%-12px)]">
+          <h3 class="text-2xl">いどばた</h3>
+          <p class="font-bold mt-2">
+            民意による政策反映：デジタル上で大規模熟議が可能なプラットフォームの構築
+          </p>
+        </div>
+      </hgroup>
+      <img
+        src="idobata/home__3project__idobata.webp"
+        width="576"
+        height="324"
+        alt="いどばたのイメージ画像"
+        class="w-full"
+      />
+      <p>
+        「いどばた」は、台湾の先行事例「JOIN」や「vTaiwan」を参考に、日本でも政策決定プロセスへの市民参加の実現に向けて、大規模な熟議プラットフォームを開発するプロジェクトです。
+      </p>
+      <div class="flex gap-4 mt-4">
+        <a href="./idobata" class="btn btn-primary">
+          もっと詳しく →
+        </a>
+        <a href="./idobata/case" class="btn btn-primary">
+          活用事例 →
+        </a>
+      </div>
+    </section>
+    <section class="mt-16">
+      <hgroup class="flex gap-2 flex-wrap">
+        <div class="gradient w-1"></div>
+        <div class="w-[calc(100%-12px)]">
+          <h3 class="text-2xl">Polimoney</h3>
+          <p class="font-bold mt-2">
+            政治資金の透明化：政治資金の見える化ダッシュボードの開発
+          </p>
+        </div>
+      </hgroup>
+      <img
+        src="polimoney/home__3project__polimoney.webp"
+        width="576"
+        height="315"
+        alt="Polimoneyのイメージ画像"
+        class="w-full py-2"
+      />
+      <p>
+        「Polimoney」プロジェクトは、政治とお金にまつわる課題をボトムから解決したいと考え、スウェーデンで運用されている透明性の高い政治運営の仕組みを参考に発足しました。
+      </p>
+      <div class="flex gap-4 mt-4 flex-wrap">
+        <a href="./polimoney" class="btn btn-primary">
+          もっと詳しく →
+        </a>
+        <a href="./polimoney/case" class="btn btn-primary">
+          活用事例 →
+        </a>
+        <a
+          href="https://polimoney.dd2030.org/"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Webサイトを見る →
+        </a>
+      </div>
+    </section>
+  </section>
+  <section class="mx-auto max-w-xl mt-20">
+    <div class="gradient w-full h-0.5"></div>
+    <div class="flex gap-4 mt-4"></div>
+    <h2 class="text-3xl mt-5 border-b pb-4">最新のお知らせ</h2>
+    <ul class="space-y-4 mt-4">
+      {{ for entry of search.pages("type=news", "date=desc", 3) }}
+        <li class="border-b pb-4">
+          <a href="{{entry.url |> url }}" class="text-xl text-blue-600 hover:underline">
+            {{ entry.title }}
+          </a>
+          <p class="text-gray-600 mt-1">
+            {{ entry.published |> date("y年M月d日") }}
+          </p>
+          <p class="mt-2">{{ entry.description }}</p>
+        </li>
+      {{ /for }}
+    </ul>
+    <div class="flex gap-4 mt-4">
+      <a href="./news" class="btn btn-primary">
+        お知らせ一覧へ →
+      </a>
+    </div>
+  </section>
+  <section class="mx-auto max-w-xl mt-20">
+    <div class="gradient w-full h-0.5"></div>
+    <h2 class="text-3xl mt-5">未来を共に創る</h2>
+    <p class="max-w-xl mt-4">
+      実証実験に参画されたい方、寄付にご協力いただける方、開発・デザイン・改善・コミュニティ運営に興味のある方
+    </p>
+    <div class="mt-4 flex gap-4 flex-wrap">
+      <a href="./co-creation" class="btn btn-primary">
+        もっと詳しく →
+      </a>
+    </div>
+  </section>
+</div>
