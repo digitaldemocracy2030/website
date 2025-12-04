@@ -74,5 +74,9 @@
       "sys": true
     }
   },
-  "lock": false
+  "lock": false,
+  "deploy": {
+    "org": "dd2030-topics",
+    "app": "website"
+  }
 }
