@@ -1,0 +1,35 @@
+description: デジタル民主主義2030プロジェクトポータルサイト
+metas:
+  site: デジタル民主主義2030
+  lang: ja
+  twitter: "@dd2030"
+  generator: true
+  title: "=title"
+  description: "=description"
+layout: layout.vto
+jsonLd:
+  "@type": WebSite
+  url: https://dd2030.org
+  headline: デジタル民主主義2030
+  name: "=title"
+  description: "=description"
+  author:
+    "@type": Organization
+    name: デジタル民主主義2030
+
+slack_join_link: https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w
+footer:
+  - title: Links
+    items:
+      - name: Slackに参加
+        url: https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w
+      - name: GitHub
+        url: https://github.com/digitaldemocracy2030
+      - name: Note
+        url: https://note.com/dd2030
+  - title: Policies
+    items:
+      - name: プライバシーポリシー
+        url: /policies/privacy
+      - name: 利用規約
+        url: /policies/terms

@@ -1,0 +1,15 @@
+---
+title: プロジェクトの歴史
+description: デジタル民主主義2030プロジェクトの歴史と週ごとの活動記録
+---
+{{ for week of weeks }}
+  <h2>第{{ week.week }}週の活動</h2>
+  <p> {{ week.date.toLocaleDateString("ja-JP") }} ~ </p>
+  <div class="flex gap-2">
+  {{ for entry of week.entries }}
+    <a href="{{ entry.url |> url }}" class="">
+      {{ entry.subject }}
+    </a>
+  {{ /for }}
+  </div>
+{{ /for }}

@@ -1,0 +1,12 @@
+---
+layout: layout.vto
+---
+<article class="mx-auto max-w-xl">
+  <p class="text-sm text-gray-500">
+    <time datetime="{{ published }}">{{ published |> date("y年M月d日") }}</time>
+  </p>
+  <h1 class="text-4xl font-bold my-4">{{ title }}</h1>
+  <div class="prose max-w-none content">
+    {{ content }}
+  </div>
+</article>
