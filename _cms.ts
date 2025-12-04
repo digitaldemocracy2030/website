@@ -11,54 +11,18 @@ const cms = lumeCMS({
     description: "デジタル民主主義2030プロジェクトポータルサイトのCMS",
     url: "https://dd2030.org",
     body: `
-    <p>ここでブログのコンテンツを編集できます</p>
+    <p>ここで「お知らせ」のコンテンツを編集できます。 save すると github プルリクエストが作成されます。</p>
     `,
   },
 });
 
 cms.storage(
   "src",
-  GitHub("kuboon/dd2030-website", Deno.env.get("GITHUB_TOKEN")!),
+  GitHub.create("digitaldemocracy2030/website", Deno.env.get("GITHUB_TOKEN")!),
 );
 
-cms.storage("kv", kvStorage);
 cms.upload("news_files", "src:news/files");
 
-cms.collection({
-  name: "news",
-  store: "kv:news",
-  fields: [
-    {
-      name: "title",
-      type: "text",
-    },
-    {
-      name: "content",
-      type: "text",
-    },
-  ],
-});
-
-cms.document({
-  name: "landing-page",
-  store: "src:index.yml",
-  fields: [
-    {
-      name: "hero",
-      type: "object",
-      fields: [
-        {
-          name: "title",
-          type: "text",
-        },
-        {
-          name: "content",
-          type: "markdown",
-        },
-      ],
-    },
-  ],
-});
 cms.collection({
   name: "news-posts",
   store: "src:news/*.md",
@@ -75,8 +39,12 @@ cms.collection({
     },
     {
       name: "published",
-      type: "datetime",
+      type: "date",
       value: new Date(),
+    },
+    {
+      name: "description",
+      type: "text",
     },
     {
       name: "content",
@@ -85,4 +53,5 @@ cms.collection({
     },
   ],
 });
+
 export default cms;
