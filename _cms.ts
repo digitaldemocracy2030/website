@@ -1,9 +1,5 @@
 import lumeCMS from "lume/cms/mod.ts";
 import GitHub from "lume/cms/storage/github.ts";
-import Kv from "lume/cms/storage/kv.ts";
-
-const kv = await Deno.openKv();
-export const kvStorage = new Kv({ kv });
 
 const cms = lumeCMS({
   site: {

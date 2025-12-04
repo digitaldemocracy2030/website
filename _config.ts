@@ -20,9 +20,12 @@ import pwa from "./lume-ext/pwa.ts";
 const site = lume({
   prettyUrls: false,
   src: "src",
+  server: {
+    port: 3000
+  }
 }, {
   markdown: { options: { breaks: false }, plugins: [] },
-});
+}, false);
 
 // site.use(checkUrls({ strict: true }));
 site.use(date());
