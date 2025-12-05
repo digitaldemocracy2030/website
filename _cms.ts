@@ -13,15 +13,15 @@ const cms = lumeCMS({
 });
 
 cms.storage(
-  "src",
-  GitHub.create("digitaldemocracy2030/website", Deno.env.get("GITHUB_TOKEN")!),
+  "gh",
+  GitHub.create("digitaldemocracy2030/website/src", Deno.env.get("GITHUB_TOKEN")!),
 );
 
 cms.upload("news_files", "src:news/files");
 
 cms.collection({
   name: "news-posts",
-  store: "src:news/*.md",
+  store: "gh:news/*.md",
   documentName: (data) => {
     const date = new Date(data.published as number).toTemporalInstant()
       .toZonedDateTimeISO("Asia/Tokyo").toPlainDate();
