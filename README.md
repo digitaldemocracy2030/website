@@ -13,14 +13,12 @@
 ### 開発サーバーの起動
 
 ```bash
-cd lume
 deno task serve
 ```
 
 ### ビルド
 
 ```bash
-cd lume
 deno task build
 ```
 
@@ -30,7 +28,7 @@ deno task build
 /
 ├── old-nextjs/       # 元のファイル群 (近日削除予定)
 ├── _config.ts        # Lume設定ファイル
-├── _cms.ts           # LumeCMS設定ファイル
+├── _cms.ts           # LumeCMS設定ファイル (整備中)
 ├── deno.json         # Deno設定ファイル
 ├── src/              # ソースファイル
 │   ├── _data.yml     # グローバルデータ
@@ -47,21 +45,10 @@ deno task build
 │   ├── kouchou-ai/   # 広聴AIページ
 │   ├── idobata/      # いどばたページ
 │   ├── polimoney/    # Polimoneyページ
-│   ├── case/         # 活用事例ページ
 │   ├── history/      # プロジェクト歴史ページ
 │   └── ...           # その他のページ
-└── .github/workflows/lume.yml  # GitHub Actions設定
+└── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ設定
 ```
-
-## 元のNext.jsからの移行
-
-このLumeプロジェクトは、元のNext.js
-SSGベースのウェブサイトから移植されました。主な変更点：
-
-- React/Next.jsコンポーネント → Ventoテンプレート (.vto)
-- pages/app ディレクトリ → src/ディレクトリ
-- CSS Modules/Tailwind → 標準CSS + Tailwind CSS
-- Markdown処理 → Lumeのmarkdownプラグイン
 
 ## ライセンス
 
