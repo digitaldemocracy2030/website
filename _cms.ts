@@ -14,7 +14,7 @@ const cms = lumeCMS({
 
 cms.storage(
   "gh",
-  GitHub.create("digitaldemocracy2030/website/src", Deno.env.get("GITHUB_TOKEN")!),
+  GitHub.create("kuboon/dd2030-private", Deno.env.get("GITHUB_TOKEN")!),
 );
 
 cms.upload("news_files", "src:news/files");
