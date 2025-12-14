@@ -1,4 +1,4 @@
 type: topics
-layout: page.vto
+layout: topics.vto
 content_classes:
   - prose

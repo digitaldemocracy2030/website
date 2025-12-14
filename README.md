@@ -29,24 +29,23 @@ deno task build
 ├── old-nextjs/       # 元のファイル群 (近日削除予定)
 ├── _config.ts        # Lume設定ファイル
 ├── _cms.ts           # LumeCMS設定ファイル (整備中)
-├── deno.json         # Deno設定ファイル
 ├── src/              # ソースファイル
-│   ├── _data.yml     # グローバルデータ
+│   ├── _components/  # コンポーネント
 │   ├── _includes/    # テンプレート
 │   │   ├── layout.vto
-│   │   ├── index.vto
 │   │   ├── page.vto
-│   │   └── post.vto
-│   ├── _components/  # コンポーネント
+│   │   └── topics.vto
 │   ├── style/        # スタイル
 │   │   └── main.css
+│   ├── _data.yml     # グローバルデータ
 │   ├── about/        # aboutページ
-│   ├── news/         # お知らせページ
+│   ├── topics/         # お知らせページ
 │   ├── kouchou-ai/   # 広聴AIページ
 │   ├── idobata/      # いどばたページ
 │   ├── polimoney/    # Polimoneyページ
 │   ├── history/      # プロジェクト歴史ページ
 │   └── ...           # その他のページ
+├── deno.json         # Deno設定ファイル
 └── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ設定
 ```
 

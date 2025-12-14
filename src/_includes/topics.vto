@@ -1,0 +1,8 @@
+---
+layout: page.vto
+---
+<p class="my-2 flex items-center">
+  <time class="text-gray-500" datetime="{{ publish_at }}">{{ publish_at |> date("y年M月d日") }}</time>
+  {{ comp.tags({tags}) }}
+</p>
+{{ content }}
