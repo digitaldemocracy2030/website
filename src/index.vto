@@ -133,7 +133,7 @@ description: デジタル民主主義2030プロジェクトポータルサイト
     <div class="flex gap-4 mt-4"></div>
     <h2 class="text-3xl mt-5 border-b pb-4">最新のお知らせ</h2>
     <ul class="space-y-4 mt-4">
-      {{ for entry of search.pages("type=news", "date=desc", 3) }}
+      {{ for entry of search.pages("type=topics", "date=desc", 3) }}
         <li class="border-b pb-4">
           <a href="{{entry.url |> url }}" class="text-xl text-blue-600 hover:underline">
             {{ entry.title }}
@@ -146,7 +146,7 @@ description: デジタル民主主義2030プロジェクトポータルサイト
       {{ /for }}
     </ul>
     <div class="flex gap-4 mt-4">
-      <a href="./news" class="btn btn-primary">
+      <a href="./topics" class="btn btn-primary">
         お知らせ一覧へ →
       </a>
     </div>

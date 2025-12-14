@@ -1,7 +1,7 @@
 ---
-layout: post.vto
 title: 広聴AI 安定版 v3.0.0 リリースのお知らせ
-published: 2025-05-30
+date: 2025-05-30 12:00:00
+tags: news
 description: LocalLLM対応とコスト削減機能を搭載した広聴AI安定版v3.0.0をリリースしました。API費用なしでの利用が可能になり、ソースリンク機能も追加されています。
 ---
 

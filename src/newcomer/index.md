@@ -2,7 +2,8 @@
 layout: page.vto
 title: はじめての方へ
 description: DD2030 に新しく参加する人向けに、全体像・最近の雰囲気・参加入口・初めのステップをまとめたオンボーディングガイド
-content_class: prose
+content_classes:
+  - prose
 ---
 
 ## 1. 全体の位置づけ：3つの柱＋大きなコミュニティ

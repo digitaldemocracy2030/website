@@ -38,7 +38,9 @@
   --depth: 1;
   --noise: 0;
 }
-
+.prose {
+  @apply max-w-none;
+}
 .about-page {
   img {
     float: right;

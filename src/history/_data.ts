@@ -1,5 +1,5 @@
 export const layout = "page.vto";
-export const content_class = "prose";
+export const content_classes = ["prose"];
 
 const projects = {
   digest: "要約",

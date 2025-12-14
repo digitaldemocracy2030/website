@@ -13,7 +13,7 @@ menu:
   - name: プロジェクトの歴史
     url: /history/
   - name: お知らせ
-    url: /news/
+    url: /topics/
 ---
 <div class="drawer drawer-end lg:drawer-open">
   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
@@ -27,7 +27,8 @@ menu:
       class="drawer-overlay"
     ></label>
     <ul class="menu bg-base-200 min-h-full w-80 p-4 max-lg:pt-16">
-      <div id="search"></div>
+      <li><div id="search"></div></li>
+      <br class="mt-4" />
       <!-- Sidebar content here -->
       {{ for item of menu }}
         <li>

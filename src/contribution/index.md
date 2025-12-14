@@ -2,7 +2,8 @@
 layout: page.vto
 title: デジタル民主主義2030 (DD2030) 貢献者向けガイドライン
 description: DD2030の貢献者向けガイドライン。政治活動・選挙活動・プロジェクト活動における注意点を記載。
-content_class: prose
+content_classes:
+  - prose
 ---
 
 **― 政治活動・選挙活動・プロジェクト活動における注意点 ―**

@@ -1,9 +1,8 @@
+import { JointStorage } from "./lume-ext/joint_storage.ts";
+
 import lumeCMS from "lume/cms/mod.ts";
 import GitHub from "lume/cms/storage/github.ts";
-import Kv from "lume/cms/storage/kv.ts";
-
-const kv = await Deno.openKv();
-export const kvStorage = new Kv({ kv });
+import { da } from "npm:date-fns@4.1.0/locale";
 
 const cms = lumeCMS({
   site: {
@@ -11,78 +10,64 @@ const cms = lumeCMS({
     description: "デジタル民主主義2030プロジェクトポータルサイトのCMS",
     url: "https://dd2030.org",
     body: `
-    <p>ここでブログのコンテンツを編集できます</p>
+    <p>ここで「お知らせ」のコンテンツを編集できます。 save すると github プルリクエストが作成されます。</p>
     `,
   },
 });
 
-cms.storage(
-  "src",
-  GitHub("kuboon/dd2030-website", Deno.env.get("GITHUB_TOKEN")!),
+const publicStorage = GitHub.create(
+  "digitaldemocracy2030/website",
+  Deno.env.get("GITHUB_TOKEN")!,
+);
+const draftStorage = GitHub.create(
+  "digitaldemocracy2030/website-drafts",
+  Deno.env.get("GITHUB_TOKEN")!,
 );
 
-cms.storage("kv", kvStorage);
-cms.upload("news_files", "src:news/files");
-
-cms.collection({
-  name: "news",
-  store: "kv:news",
-  fields: [
-    {
-      name: "title",
-      type: "text",
-    },
-    {
-      name: "content",
-      type: "text",
-    },
-  ],
+const jointStorage = new JointStorage({
+  draft: draftStorage,
+  public: publicStorage,
 });
 
-cms.document({
-  name: "landing-page",
-  store: "src:index.yml",
-  fields: [
-    {
-      name: "hero",
-      type: "object",
-      fields: [
-        {
-          name: "title",
-          type: "text",
-        },
-        {
-          name: "content",
-          type: "markdown",
-        },
-      ],
-    },
-  ],
-});
+cms.storage("gh", jointStorage);
+
+const dateToZoned = (date = new Date()) =>
+  date.toTemporalInstant().toZonedDateTimeISO("Asia/Tokyo");
+
 cms.collection({
-  name: "news-posts",
-  store: "src:news/*.md",
+  name: "topics_posts",
+  store: "gh:topics/*.md",
   documentName: (data) => {
-    const date = new Date(data.published as number).toTemporalInstant()
-      .toZonedDateTimeISO("Asia/Tokyo").toPlainDate();
+    const date = dateToZoned(data.published as Date).toPlainDate();
     return `${date}-${data.title}.md`;
   },
   fields: [
     {
-      name: "title",
-      type: "text",
-      value: new Date().toTimeString().slice(0, 5),
+      name: "draft",
+      type: "checkbox",
+      value: true,
     },
     {
-      name: "published",
-      type: "datetime",
-      value: new Date(),
+      name: "title",
+      type: "text",
+      value: `${dateToZoned().toPlainDate()}のお知らせ`,
+    },
+    {
+      name: "publish_on",
+      type: "date",
+      value: dateToZoned().toPlainDate().toString(),
+    },
+    {
+      name: "description",
+      type: "text",
     },
     {
       name: "content",
       type: "markdown",
-      upload: "news_files",
+      upload: "topics_files",
     },
   ],
 });
+cms.upload("topics_files", "gh:topics/files");
+
 export default cms;

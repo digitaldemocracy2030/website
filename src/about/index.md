@@ -2,7 +2,9 @@
 layout: page.vto
 title: デジタル民主主義2030とは
 description: デジタル民主主義の概要やミッションについて
-content_class: about-page prose
+content_classes:
+  - about-page
+  - prose
 ---
 
 2030

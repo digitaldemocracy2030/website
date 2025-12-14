@@ -2,21 +2,20 @@
 type: index
 layout: page.vto
 title: お知らせ
+url: /topics/
 description: デジタル民主主義2030プロジェクトからのお知らせ
 ---
 
-<div class="mx-auto max-w-xl mt-10">
-  <ul class="space-y-4">
-    {{ for entry of search.pages("type=news", "published=desc") }}
+  <ul>
+    {{ for entry of search.pages("type=topics", "date=desc") }}
       <li class="border-b pb-4">
         <a href="{{entry.url}}" class="text-xl text-blue-600 hover:underline">
           {{ entry.title }}
         </a>
         <p class="text-gray-600 mt-1">
-          {{ entry.published |> date("y年M月d日") }}
+          {{ entry.date |> date("y年M月d日") }}
         </p>
         <p class="mt-2">{{ entry.description }}</p>
       </li>
     {{ /for }}
   </ul>
-</div>

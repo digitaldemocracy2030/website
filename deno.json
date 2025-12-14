@@ -63,6 +63,7 @@
       ],
       "net": [
         "0.0.0.0",
+        "api.github.com:443",
         "jsr.io:443",
         "cdn.jsdelivr.net:443",
         "data.jsdelivr.com:443",
@@ -74,5 +75,9 @@
       "sys": true
     }
   },
-  "lock": false
+  "lock": false,
+  "deploy": {
+    "org": "dd2030-topics",
+    "app": "website"
+  }
 }

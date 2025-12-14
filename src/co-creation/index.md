@@ -2,7 +2,9 @@
 layout: page.vto
 title: 未来を共に創る
 description: デジタル民主主義2030プロジェクトへの参画、寄付、コミュニティ参加の案内
-content_class: prose prose-h1:text-2xl
+content_classes:
+  - prose
+  - prose-h1:text-2xl
 templateEngine: [vto, md]
 ---
 
