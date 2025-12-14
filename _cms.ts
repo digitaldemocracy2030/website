@@ -2,7 +2,6 @@ import { JointStorage } from "./lume-ext/joint_storage.ts";
 
 import lumeCMS from "lume/cms/mod.ts";
 import GitHub from "lume/cms/storage/github.ts";
-import { da } from "npm:date-fns@4.1.0/locale";
 
 const cms = lumeCMS({
   site: {
@@ -10,17 +9,17 @@ const cms = lumeCMS({
     description: "デジタル民主主義2030プロジェクトポータルサイトのCMS",
     url: "https://dd2030.org",
     body: `
-    <p>ここで「お知らせ」のコンテンツを編集できます。 save すると github プルリクエストが作成されます。</p>
+    <p>ここで「お知らせ」のコンテンツを編集できます。 draft は private repository へ保存されます。</p>
     `,
   },
 });
 
 const publicStorage = GitHub.create(
-  "digitaldemocracy2030/website",
+  "digitaldemocracy2030/website/src",
   Deno.env.get("GITHUB_TOKEN")!,
 );
 const draftStorage = GitHub.create(
-  "digitaldemocracy2030/website-drafts",
+  "digitaldemocracy2030/website_topics",
   Deno.env.get("GITHUB_TOKEN")!,
 );
 

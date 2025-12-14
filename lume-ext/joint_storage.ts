@@ -47,23 +47,21 @@ export class JointStorage implements Storage {
       .getStorageAndName(name);
     const entry = storage.get(innerName);
     const storages = this.storages;
+    const writeDataOrg = entry.writeData.bind(entry);
+    entry.writeData = async function (data: Data) {
+      const targetType = data.draft ? "draft" : "public";
 
-    return {
-      ...entry,
-      async writeData(data: Data) {
-        const targetType = data.draft ? "draft" : "public";
-
-        if (targetType === currentType) {
-          await entry.writeData(data);
-        } else {
-          const currentStorage = storages[currentType];
-          const targetStorage = storages[targetType];
-          const targetEntry = targetStorage.get(innerName);
-          await targetEntry.writeData(data);
-          await currentStorage.delete(innerName);
-        }
-      },
+      if (targetType === currentType) {
+        await writeDataOrg(data);
+      } else {
+        const currentStorage = storages[currentType];
+        const targetStorage = storages[targetType];
+        const targetEntry = targetStorage.get(innerName);
+        await targetEntry.writeData(data);
+        await currentStorage.delete(innerName);
+      }
     };
+    return entry;
   }
 
   /**
