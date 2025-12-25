@@ -1,4 +1,4 @@
-import { privateRepoStorage } from "../../_cms.ts";
+import { privateRepoStorage } from "../../_storage.ts";
 const topics = privateRepoStorage.directory("topics/**/*");
 export default async function* () {
   for await (const item of topics) {
