@@ -76,6 +76,7 @@
     }
   },
   "lock": false,
+  "nodeModulesDir": "auto",
   "deploy": {
     "org": "dd2030-topics",
     "app": "website"

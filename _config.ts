@@ -17,11 +17,18 @@ import vento from "lume/plugins/vento.ts";
 import compTag from "./lume-ext/vento_comp.ts";
 import pwa from "./lume-ext/pwa.ts";
 
+import markdownit_anchor from "npm:markdown-it-anchor";
+
 const site = lume({
   prettyUrls: false,
   src: "src",
 }, {
-  markdown: { options: { breaks: false }, plugins: [] },
+  markdown: {
+    options: { breaks: false },
+    plugins: [[markdownit_anchor, {
+      permalink: markdownit_anchor.permalink.headerLink(),
+    }]],
+  },
 }, false);
 
 // site.use(checkUrls({ output: "brokenLinks.json" }));
