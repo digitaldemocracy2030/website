@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui@5.5.5" {
+@plugin "daisyui@5.5.14" {
   themes: false;
 }
 
@@ -47,4 +47,10 @@
     margin-left: 2em;
     width: 50%;
   }
+}
+:target {
+  scroll-margin-top: 3.5rem; /* h-14 = 3.5rem */
+}
+a.header-anchor {
+  text-decoration: none;
 }

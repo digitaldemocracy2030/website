@@ -1,7 +1,8 @@
-import { JointStorage } from "./lume-ext/joint_storage.ts";
+// import { JointStorage } from "./lume-ext/joint_storage.ts";
 
 import lumeCMS from "lume/cms/mod.ts";
 import GitHub from "lume/cms/storage/github.ts";
+import Site from "lume/core/site.ts";
 
 const cms = lumeCMS({
   site: {
@@ -13,22 +14,27 @@ const cms = lumeCMS({
     `,
   },
 });
+const cmsPassword = Deno.env.get("CMS_PASSWORD");
+if (!cmsPassword) {
+  throw new Error("CMS_PASSWORD is not set in environment variables");
+}
 
-const publicStorage = GitHub.create(
-  "digitaldemocracy2030/website/src",
-  Deno.env.get("GITHUB_TOKEN")!,
-);
-const draftStorage = GitHub.create(
+cms.auth({ dd2030: cmsPassword });
+// const publicStorage = GitHub.create(
+//   "digitaldemocracy2030/website/src",
+//   Deno.env.get("GITHUB_TOKEN")!,
+// );
+export const privateRepoStorage = GitHub.create(
   "digitaldemocracy2030/website_topics",
   Deno.env.get("GITHUB_TOKEN")!,
 );
 
-const jointStorage = new JointStorage({
-  draft: draftStorage,
-  public: publicStorage,
-});
+// const jointStorage = new JointStorage({
+//   draft: draftStorage,
+//   public: publicStorage,
+// });
 
-cms.storage("gh", jointStorage);
+cms.storage("gh", privateRepoStorage);
 
 const dateToZoned = (date = new Date()) =>
   date.toTemporalInstant().toZonedDateTimeISO("Asia/Tokyo");
@@ -36,6 +42,17 @@ const dateToZoned = (date = new Date()) =>
 cms.collection({
   name: "topics_posts",
   store: "gh:topics/*.md",
+  previewUrl: (path: string, cms: any, hasChanged: boolean) => {
+    const site: Site = cms.data.site;
+    const outputPath = path.replace(/\.md$/, ".html");
+    const srcPath = "/topics/drafts.page.ts";
+    if (hasChanged) {
+      console.log("updating");
+      site.update(new Set([srcPath]));
+      console.log("updated");
+    }
+    return site.url(outputPath);
+  },
   documentName: (data) => {
     const date = dateToZoned(data.published as Date).toPlainDate();
     return `${date}-${data.title}.md`;
@@ -47,12 +64,16 @@ cms.collection({
       value: true,
     },
     {
+      name: "tags",
+      type: "list",
+    },
+    {
       name: "title",
       type: "text",
       value: `${dateToZoned().toPlainDate()}のお知らせ`,
     },
     {
-      name: "publish_on",
+      name: "publish_at",
       type: "date",
       value: dateToZoned().toPlainDate().toString(),
     },

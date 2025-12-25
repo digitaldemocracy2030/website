@@ -4,10 +4,11 @@ layout: page.vto
 title: お知らせ
 url: /topics/
 description: デジタル民主主義2030プロジェクトからのお知らせ
+renderOrder: 1
 ---
 
 <ul class="prose">
-  {{ for entry of search.pages("type=topics", "date=desc") }}
+  {{ for entry of search.pages("type=topics draft!=true", "date=desc") }}
     <li class="my-4">
       <h2><a href="{{entry.url}}">{{ entry.title }}</a></h2>
       <p class="text-gray-600">
