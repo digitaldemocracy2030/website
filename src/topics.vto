@@ -11,9 +11,7 @@ renderOrder: 1
   {{ for entry of search.pages("type=topics draft!=true", "publish_on=desc") }}
     <li class="my-4">
       <h2><a href="{{entry.url}}">{{ entry.title }}</a></h2>
-      <p class="text-gray-600">
-        {{ entry.publish_on |> date("y年M月d日") }}
-      </p>
+      {{ comp.topicHeader({ entry }) }}
       <p class="mt-2">{{ entry.description }}</p>
     </li>
   {{ /for }}
