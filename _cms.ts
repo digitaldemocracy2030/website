@@ -60,7 +60,7 @@ cms.collection({
       value: `${dateToZoned().toPlainDate()}のお知らせ`,
     },
     {
-      name: "publish_at",
+      name: "publish_on",
       type: "date",
       value: dateToZoned().toPlainDate().toString(),
     },

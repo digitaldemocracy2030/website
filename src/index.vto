@@ -139,7 +139,7 @@ description: デジタル民主主義2030プロジェクトポータルサイト
             {{ entry.title }}
           </a>
           <p class="text-gray-600 mt-1">
-            {{ entry.published |> date("y年M月d日") }}
+            {{ entry.publish_on |> date("y年M月d日") }}
           </p>
           <p class="mt-2">{{ entry.description }}</p>
         </li>
