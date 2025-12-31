@@ -1,3 +1,4 @@
+// import { JointStorage } from "./lume-ext/joint_storage.ts";
 import GitHub from "lume/cms/storage/github.ts";
 // const publicStorage = GitHub.create(
 //   "digitaldemocracy2030/website/src",

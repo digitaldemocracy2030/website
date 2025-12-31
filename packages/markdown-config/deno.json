@@ -1,0 +1,5 @@
+{
+  "name": "@local/markdown-config",
+  "version": "0.0.0",
+  "exports": "./mod.ts"
+}

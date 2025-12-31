@@ -26,7 +26,7 @@ site.ignore((path) => {
   return !path.startsWith("/topics");
 });
 
-async function build() {
+function build() {
   // Set the live reload environment variable to add hash to the URLs in the module loader
   setEnv("LUME_LIVE_RELOAD", "true");
 

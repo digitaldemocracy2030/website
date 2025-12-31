@@ -1,4 +1,7 @@
 {
+  "workspace": [
+    "./packages/markdown-config"
+  ],
   "tasks": {
     "lume": {
       "description": "Run Lume command",

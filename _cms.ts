@@ -1,5 +1,3 @@
-// import { JointStorage } from "./lume-ext/joint_storage.ts";
-
 import lumeCMS from "lume/cms/mod.ts";
 import Site from "lume/core/site.ts";
 import { privateRepoStorage } from "./_storage.ts";
@@ -41,7 +39,7 @@ cms.collection({
     return site.url(outputPath);
   },
   documentName: (data) => {
-    const date = dateToZoned(data.published as Date).toPlainDate();
+    const date = dateToZoned(data.publish_on as Date).toPlainDate();
     return `${date}-${data.title}.md`;
   },
   fields: [
