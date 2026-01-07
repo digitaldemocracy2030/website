@@ -17,16 +17,17 @@ import noCache from "lume/middlewares/no_cache.ts";
 import noCors from "lume/middlewares/no_cors.ts";
 import reload from "lume/middlewares/reload.ts";
 import lumeCMS from "lume/plugins/lume_cms.ts";
+import { serveDir } from "jsr:@std/http/file-server";
 
 const pid = Deno.pid;
 const ppid = Deno.ppid;
 console.log(`Starting Lume CMS entrypoint (pid: ${pid}, ppid: ${ppid})`);
 
-site.ignore((path) => {
-  return !path.startsWith("/topics");
-});
+function build() {
+  site.ignore((path) => {
+    return !path.startsWith("/topics");
+  });
 
-async function build() {
   // Set the live reload environment variable to add hash to the URLs in the module loader
   setEnv("LUME_LIVE_RELOAD", "true");
 
@@ -119,9 +120,9 @@ async function build() {
     noCors(),
   );
 
-  server.start();
+  server.dispatchEvent({ type: "start" });
+  return server;
 }
-
 function createWaitResponse(url: string): Response {
   return new Response(
     `<html>
@@ -167,4 +168,16 @@ function createWaitResponse(url: string): Response {
     },
   );
 }
-await build();
+function fetch(req: Request, info: Deno.ServeHandlerInfo): Promise<Response> {
+  const url = new URL(req.url)
+  const path = url.pathname;
+  if(path.startsWith("/admin") || path.startsWith("/topics/")) {
+    const server = build();
+    return server.handle(req, info);
+  }
+  return serveDir(req, {
+    fsRoot: "./_site"
+  })
+}
+    
+export default { fetch }
