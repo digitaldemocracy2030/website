@@ -1,4 +1,7 @@
 {
+  "workspace": [
+    "./packages/markdown-config"
+  ],
   "tasks": {
     "lume": {
       "description": "Run Lume command",
@@ -21,9 +24,10 @@
     "jsxImportSource": "lume"
   },
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.2/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.14.2/",
-    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.13/jsx-runtime.ts"
+    "daisyui": "npm:daisyui@^5.5.14",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.4/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.14.9/",
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.14/jsx-runtime.ts"
   },
   "unstable": [
     "temporal",
@@ -41,7 +45,7 @@
   },
   "lint": {
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.2/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.4/lint.ts"
     ],
     "rules": {
       "exclude": [

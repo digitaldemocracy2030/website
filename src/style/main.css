@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui@5.5.14" {
+@plugin "daisyui" {
   themes: false;
 }
 
@@ -53,4 +53,16 @@
 }
 a.header-anchor {
   text-decoration: none;
+  font-weight: inherit;
+  &::before {
+    content: "#";
+    margin-inline-start: -0.7em;
+    opacity: 0.5;
+  }
+  &:not(:hover, :focus) {
+    text-decoration: none !important;
+    &::before {
+      visibility: hidden;
+    }
+  }
 }

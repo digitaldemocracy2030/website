@@ -169,15 +169,15 @@ function createWaitResponse(url: string): Response {
   );
 }
 function fetch(req: Request, info: Deno.ServeHandlerInfo): Promise<Response> {
-  const url = new URL(req.url)
+  const url = new URL(req.url);
   const path = url.pathname;
-  if(path.startsWith("/admin") || path.startsWith("/topics/")) {
+  if (path.startsWith("/admin") || path.startsWith("/topics/")) {
     const server = build();
     return server.handle(req, info);
   }
   return serveDir(req, {
-    fsRoot: "./_site"
-  })
+    fsRoot: "./_site",
+  });
 }
-    
-export default { fetch }
+
+export default { fetch };
