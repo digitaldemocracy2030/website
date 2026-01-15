@@ -147,7 +147,10 @@ function createWaitResponse(url: string): Response {
           document.location = "${url}";
           break;
         } catch(e) {
-          console.log(e)
+          if (e instanceof TypeError) {
+            document.location = "${url}";
+            break;
+          }
           samp.textContent += ".";
           await new Promise((resolve) => setTimeout(resolve, timeout));
         }
