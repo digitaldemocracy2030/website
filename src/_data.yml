@@ -6,6 +6,7 @@ metas:
   generator: true
   title: "=title"
   description: "=description"
+  image: ogp.png
 layout: layout.vto
 jsonLd:
   "@type": WebSite

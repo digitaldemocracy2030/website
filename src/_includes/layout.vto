@@ -1,4 +1,3 @@
----
 <!DOCTYPE html>
 <html lang="{{metas.lang}}">
   <head>
@@ -18,17 +17,9 @@
       title="{{metas.site}}"
       href="{{ 'feed.rss' |> url(true) }}"
     >
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="{{ "/" |>url(true) }}">
-    <meta property="og:site_name" content="{{ metas.site }}">
-    <meta property="og:image" content="{{ 'ogp.png' |> url(true) }}">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ja_JP">
-    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title }} | {{ metas.site }}">
     <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:image" content="{{ 'ogp.png' |> url(true) }}">
+    <meta name="twitter:image" content="{{ '/ogp.png' |> url(true) }}">
   </head>
   <body class="bg-background text-foreground">
   {{ comp drawer }}
@@ -44,7 +35,7 @@
               class="inline-block font-bold text-xl"
             >
               <img
-                src="{{ 'logo.png' |> url }}"
+                src="{{ '/logo.png' |> url }}"
                 alt="デジタル民主主義2030"
                 class="inline h-14 -ms-2"
               />
