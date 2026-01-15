@@ -1,23 +1,35 @@
 import lume from "lume/mod.ts";
-import checkUrls from "lume/plugins/check_urls.ts";
+// import checkUrls from "lume/plugins/check_urls.ts";
 import date from "lume/plugins/date.ts";
 import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 import inline from "lume/plugins/inline.ts";
 import jsonLd from "lume/plugins/json_ld.ts";
 import jsx from "lume/plugins/jsx.ts";
+// import mdx from "./lume-ext/mdx.ts";
+import mdx from "lume/plugins/mdx.ts";
 import metas from "lume/plugins/metas.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import picture from "lume/plugins/picture.ts";
+import remark from "lume/plugins/remark.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import source_maps from "lume/plugins/source_maps.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import vento from "lume/plugins/vento.ts";
-import compTag from "./lume-ext/vento_comp.ts";
 import pwa from "./lume-ext/pwa.ts";
 
-import markdownit_anchor from "npm:markdown-it-anchor";
+import { remarkTransform, rehypeTransform } from "@local/markdown-config";
+const remarkPlugins = [remarkTransform];
+const rehypePlugins = [rehypeTransform];
+const customRemark = remark({
+  remarkPlugins,
+  rehypePlugins,
+});
+const customMdx = mdx({
+  remarkPlugins,
+  rehypePlugins,
+});
 
 const site = lume({
   prettyUrls: false,
@@ -25,9 +37,6 @@ const site = lume({
 }, {
   markdown: {
     options: { breaks: false },
-    plugins: [[markdownit_anchor, {
-      permalink: markdownit_anchor.permalink.headerLink(),
-    }]],
   },
 }, false);
 
@@ -58,6 +67,8 @@ site.use(pwa({
 }));
 site.use(jsonLd());
 site.use(jsx());
+site.use(customRemark);
+site.use(customMdx);
 site.use(tailwindcss());
 site.use(source_maps());
 site.use(picture());
@@ -78,7 +89,6 @@ site.use(sitemap({
   query: "noindex!=true",
 }));
 site.use(vento());
-site.hooks.vento((v: { tags: unknown[] }) => v.tags.unshift(compTag));
 site.add([".jpg", ".png", ".webp"]);
 
 export default site;

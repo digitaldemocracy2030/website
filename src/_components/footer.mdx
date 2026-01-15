@@ -1,0 +1,40 @@
+---
+footerData:
+  - title: Links
+    items:
+      - name: GitHub
+        url: https://github.com/digitaldemocracy2030
+      - name: Youtube
+        url: https://youtube.com/@digitaldemocracy-japan
+      - name: Note
+        url: https://note.com/dd2030
+  - title: Policies
+    items:
+      - name: プライバシーポリシー
+        url: /policies/privacy
+      - name: 利用規約
+        url: /policies/terms
+---
+<footer class="footer footer-horizontal bg-base-200 text-base-content p-10">
+  <aside>
+    <img
+      src="/ogp.png"
+      alt="デジタル民主主義2030"
+      class="h-12 mb-4"
+    />
+    <small>
+      © {new Date().getFullYear()}
+      <br /> デジタル民主主義2030
+    </small>
+  </aside>
+  {footerData.map((col) => (
+    <nav>
+      <h6 class="footer-title">{col.title}</h6>
+      {col.items.map((item) => (
+        <a href={item.url} class="link link-hover">
+          {item.name}
+        </a>
+      ))}
+    </nav>
+  ))}
+</footer>

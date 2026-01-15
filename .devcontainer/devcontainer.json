@@ -13,7 +13,8 @@
       },
       "extensions": [
         "denoland.vscode-deno",
-        "oscarotero.vento-syntax"
+        "oscarotero.vento-syntax",
+        "unifiedjs.vscode-mdx"
       ]
     }
   }
