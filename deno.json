@@ -24,9 +24,10 @@
     "jsxImportSource": "lume"
   },
   "imports": {
+    "@std/http": "jsr:@std/http@^1.0.23",
     "daisyui": "npm:daisyui@^5.5.14",
     "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.4/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.14.9/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.14.11/",
     "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.14/jsx-runtime.ts"
   },
   "unstable": [

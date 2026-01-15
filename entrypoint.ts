@@ -1,128 +1,129 @@
 // deno deploy entrypoint 用
-// CMS を起動し、 drafts も render します
-// 現在の CMS のアーキテクチャ上、 CMS の編集画面で preview をする際に
-// 実際に render されたページを使うので、 drafts も render することになる。
-// prod 環境 https://dd2030.org は github pages を使い、 CMS 機能を持たない
-// draft のページはスキップされる
+// dest を切り替えて別の lume Site インスタンスを作り、そこで cms を立ち上げる。
+// topics と admin/ 以下を cms に任せ、その他のパスは _site から静的ファイルを返す。
 
-import site from "./_config.ts";
+import { dd2030Config } from "./_dd2030config.ts";
 import cms from "./_cms.ts";
 
+import lume from "lume/mod.ts";
 import { log } from "lume/core/utils/log.ts";
 import { localIp } from "lume/core/utils/net.ts";
-import { env, setEnv } from "lume/core/utils/env.ts";
+import { setEnv } from "lume/core/utils/env.ts";
 import { SiteWatcher } from "lume/core/watcher.ts";
-import logger from "lume/middlewares/logger.ts";
 import noCache from "lume/middlewares/no_cache.ts";
 import noCors from "lume/middlewares/no_cors.ts";
 import reload from "lume/middlewares/reload.ts";
 import lumeCMS from "lume/plugins/lume_cms.ts";
-import { serveDir } from "jsr:@std/http/file-server";
+import { serveDir } from "@std/http/file-server";
 
-const pid = Deno.pid;
-const ppid = Deno.ppid;
-console.log(`Starting Lume CMS entrypoint (pid: ${pid}, ppid: ${ppid})`);
+console.log(
+  `Starting Lume CMS entrypoint (pid: ${Deno.pid}, ppid: ${Deno.ppid})`,
+);
 
-function build() {
-  site.ignore((path) => {
-    return !path.startsWith("/topics");
-  });
-
-  // Set the live reload environment variable to add hash to the URLs in the module loader
-  setEnv("LUME_LIVE_RELOAD", "true");
-
-  // Show draft pages in development mode (if not set already)
-  const showDrafts = env<boolean | undefined>("LUME_DRAFTS");
-  if (showDrafts === undefined) {
-    setEnv("LUME_DRAFTS", "true");
-  }
-
-  // Setup LumeCMS
-  {
-    site.use(lumeCMS({
-      cms,
-      protectSite: true,
-    }));
-  }
-
-  // Start the local server
-  const server = site.getServer();
-  const { port, hostname } = site.options.server;
-
-  server.addEventListener("start", () => {
-    {
-      const ipAddr = localIp();
-
-      log.info("\n  Server started at:");
-      log.info(`  <green>http://${hostname}:${port}/</green> (local)`);
-
-      if (ipAddr) {
-        log.info(`  <green>http://${ipAddr}:${port}/</green> (network)`);
-      }
-
-      if (cms) {
-        log.info("\n  LumeCMS started at:");
-        const { basePath } = cms.options;
-        log.info(
-          `  <green>http://${hostname}:${port}${basePath}</green> (local)`,
-        );
-
-        if (ipAddr) {
-          log.info(
-            `  <green>http://${ipAddr}:${port}${basePath}</green> (network)`,
-          );
-        }
-      }
+export default {
+  fetch(req, info) {
+    const path = new URL(req.url).pathname;
+    if (
+      path.startsWith("/admin") || path.startsWith("/topics/") ||
+      req.headers.get("upgrade") === "websocket"
+    ) {
+      return handleCmsRequest(req, info);
+      // return server.handle(req, info);
     }
+    return serveDir(req, {
+      fsRoot: "./_site",
+    });
+  },
+} satisfies Deno.ServeDefaultExport;
 
-    site.dispatchEvent({ type: "afterStartServer" });
-  });
-
-  if (log.level < 5) {
-    server.use(logger());
-  }
-
-  // Add the reload middleware
-  server.addEventListener("start", () => {
-    let built = false;
-    const buildPromise = site.build().catch((error) => {
+setEnv("LUME_LIVE_RELOAD", "true");
+setEnv("LUME_DRAFTS", "true");
+const site = lume({
+  prettyUrls: false,
+  src: "src",
+  dest: "_cms",
+});
+site.use(dd2030Config);
+site.ignore((path) => {
+  if (path.endsWith(".css")) return true;
+  return !path.startsWith("/topics");
+});
+site.use(lumeCMS({
+  cms,
+  protectSite: true,
+}));
+const server = site.getServer();
+let built = false;
+let buildPromise: Promise<void> | null = null;
+async function handleCmsRequest(req: Request, info: Deno.ServeHandlerInfo) {
+  if (!buildPromise) {
+    buildPromise = site.build().catch((error) => {
       log.error("Error during the site build:", error);
     }).finally(() => {
       built = true;
     });
-    server.useFirst(async (request, next) => {
-      if (!built) {
-        if (request.headers.get("X-Lume-Reload-Check") !== "true") {
-          return createWaitResponse(request.url);
-        }
-        await buildPromise;
-      }
-      const response = await next(request);
-
-      // Reload if the response header tells us to
-      if (response.headers.get("X-Lume-CMS") === "reload") {
-        log.info("Reloading the site...");
-        const url = response.headers.get("Location") || request.url;
-        await site.build();
-        return createWaitResponse(url);
-      }
-
-      return response;
+  }
+  if (!built) {
+    if (req.headers.get("X-Lume-Reload-Check") !== "true") {
+      return createWaitResponse(req.url);
+    }
+    await buildPromise;
+  }
+  const response = await server.handle(req, info);
+  // Reload if the response header tells us to
+  if (response.headers.get("X-Lume-CMS") === "reload") {
+    log.info("Reloading the site...");
+    const url = response.headers.get("Location") || req.url;
+    built = false;
+    buildPromise = site.build().catch((error) => {
+      log.error("Error during the site build:", error);
+    }).finally(() => {
+      built = true;
     });
-  }, { once: true });
+    return createWaitResponse(url);
+  }
 
-  server.useFirst(
-    reload({
-      watcher: new SiteWatcher(site),
-      basepath: site.options.location.pathname,
-    }),
-    noCache(),
-    noCors(),
-  );
-
-  server.dispatchEvent({ type: "start" });
-  return server;
+  return response;
 }
+
+server.addEventListener("start", () => {
+  const ipAddr = localIp();
+  const { port, hostname } = site.options.server;
+
+  log.info("\n  Server started at:");
+  log.info(`  <green>http://${hostname}:${port}/</green> (local)`);
+
+  if (ipAddr) {
+    log.info(`  <green>http://${ipAddr}:${port}/</green> (network)`);
+  }
+
+  if (cms) {
+    log.info("\n  LumeCMS started at:");
+    const { basePath } = cms.options;
+    log.info(
+      `  <green>http://${hostname}:${port}${basePath}</green> (local)`,
+    );
+
+    if (ipAddr) {
+      log.info(
+        `  <green>http://${ipAddr}:${port}${basePath}</green> (network)`,
+      );
+    }
+  }
+  site.dispatchEvent({ type: "afterStartServer" });
+});
+// Add the reload middleware
+
+server.useFirst(
+  reload({
+    watcher: new SiteWatcher(site),
+    basepath: site.options.location.pathname,
+  }),
+  noCache(),
+  noCors(),
+);
+server.dispatchEvent({ type: "start" });
+
 function createWaitResponse(url: string): Response {
   return new Response(
     `<html>
@@ -150,7 +151,11 @@ function createWaitResponse(url: string): Response {
           await fetch("${url}", { method: "HEAD", cache: "no-store", headers: { "X-Lume-Reload-Check": "true" } });
           document.location = "${url}";
           break;
-        } catch {
+        } catch(e) {
+          if (e instanceof TypeError) {
+            document.location = "${url}";
+            break;
+          }
           samp.textContent += ".";
           await new Promise((resolve) => setTimeout(resolve, timeout));
         }
@@ -168,16 +173,3 @@ function createWaitResponse(url: string): Response {
     },
   );
 }
-function fetch(req: Request, info: Deno.ServeHandlerInfo): Promise<Response> {
-  const url = new URL(req.url);
-  const path = url.pathname;
-  if (path.startsWith("/admin") || path.startsWith("/topics/")) {
-    const server = build();
-    return server.handle(req, info);
-  }
-  return serveDir(req, {
-    fsRoot: "./_site",
-  });
-}
-
-export default { fetch };
