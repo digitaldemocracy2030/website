@@ -146,7 +146,8 @@ function createWaitResponse(url: string): Response {
           await fetch("${url}", { method: "HEAD", cache: "no-store", headers: { "X-Lume-Reload-Check": "true" } });
           document.location = "${url}";
           break;
-        } catch {
+        } catch(e) {
+          console.log(e)
           samp.textContent += ".";
           await new Promise((resolve) => setTimeout(resolve, timeout));
         }
