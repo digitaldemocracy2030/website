@@ -27,7 +27,9 @@ function dateToZoned(dateStr?: string | Date) {
   if (typeof dateStr === "string") {
     return Temporal.PlainDate.from(dateStr).toZonedDateTime("Asia/Tokyo");
   } else if (dateStr instanceof Date || dateStr === undefined) {
-    return (dateStr || new Date()).toTemporalInstant().toZonedDateTimeISO("Asia/Tokyo");
+    return (dateStr || new Date()).toTemporalInstant().toZonedDateTimeISO(
+      "Asia/Tokyo",
+    );
   }
   throw new Error("Invalid date");
 }

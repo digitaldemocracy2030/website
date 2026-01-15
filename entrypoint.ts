@@ -23,7 +23,10 @@ console.log(
 export default {
   fetch(req, info) {
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/admin") || path.startsWith("/topics/")) {
+    if (
+      path.startsWith("/admin") || path.startsWith("/topics/") ||
+      req.headers.get("upgrade") === "websocket"
+    ) {
       return handleCmsRequest(req, info);
       // return server.handle(req, info);
     }
@@ -42,7 +45,7 @@ const site = lume({
 });
 site.use(dd2030Config);
 site.ignore((path) => {
-  if (path.endsWith(".css")) return true; 
+  if (path.endsWith(".css")) return true;
   return !path.startsWith("/topics");
 });
 site.use(lumeCMS({
@@ -74,7 +77,9 @@ async function handleCmsRequest(req: Request, info: Deno.ServeHandlerInfo) {
     built = false;
     buildPromise = site.build().catch((error) => {
       log.error("Error during the site build:", error);
-    }).finally(() => { built = true; });
+    }).finally(() => {
+      built = true;
+    });
     return createWaitResponse(url);
   }
 
