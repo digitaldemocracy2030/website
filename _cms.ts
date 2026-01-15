@@ -1,6 +1,8 @@
 import lumeCMS from "lume/cms/mod.ts";
 import Site from "lume/core/site.ts";
 import { privateRepoStorage } from "./_storage.ts";
+import type { CMSContent } from "lume/cms/types.ts";
+import { th } from "npm:date-fns@4.1.0/locale";
 
 const cms = lumeCMS({
   site: {
@@ -21,13 +23,19 @@ cms.auth({ dd2030: cmsPassword });
 
 cms.storage("gh", privateRepoStorage);
 
-const dateToZoned = (date = new Date()) =>
-  date.toTemporalInstant().toZonedDateTimeISO("Asia/Tokyo");
+function dateToZoned(dateStr?: string | Date) {
+  if (typeof dateStr === "string") {
+    return Temporal.PlainDate.from(dateStr).toZonedDateTime("Asia/Tokyo");
+  } else if (dateStr instanceof Date || dateStr === undefined) {
+    return (dateStr || new Date()).toTemporalInstant().toZonedDateTimeISO("Asia/Tokyo");
+  }
+  throw new Error("Invalid date");
+}
 
 cms.collection({
   name: "topics_posts",
   store: "gh:topics/*.md",
-  previewUrl: (path: string, cms: any, hasChanged: boolean) => {
+  previewUrl: (path: string, cms: CMSContent, hasChanged: boolean) => {
     const site: Site = cms.data.site;
     const outputPath = path.replace(/\.md$/, ".html");
     const srcPath = "/topics/drafts.page.ts";
@@ -39,7 +47,8 @@ cms.collection({
     return site.url(outputPath);
   },
   documentName: (data) => {
-    const date = dateToZoned(data.publish_on as Date).toPlainDate();
+    const { publish_on } = data;
+    const date = dateToZoned(data.publish_on).toPlainDate();
     return `${date}-${data.title}.md`;
   },
   fields: [
