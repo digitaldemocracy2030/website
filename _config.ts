@@ -6,6 +6,7 @@ import feed from "lume/plugins/feed.ts";
 import inline from "lume/plugins/inline.ts";
 import jsonLd from "lume/plugins/json_ld.ts";
 import jsx from "lume/plugins/jsx.ts";
+// import mdx from "./lume-ext/mdx.ts";
 import mdx from "lume/plugins/mdx.ts";
 import metas from "lume/plugins/metas.ts";
 import nav from "lume/plugins/nav.ts";
@@ -18,8 +19,9 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import vento from "lume/plugins/vento.ts";
 import pwa from "./lume-ext/pwa.ts";
 
-import { rehypePlugins, remarkPlugins } from "@local/markdown-config";
-
+import { remarkTransform, rehypeTransform } from "@local/markdown-config";
+const remarkPlugins = [remarkTransform];
+const rehypePlugins = [rehypeTransform];
 const customRemark = remark({
   remarkPlugins,
   rehypePlugins,

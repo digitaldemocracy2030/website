@@ -1,20 +1,28 @@
-type Node = {
-  children?: Node[];
+interface Node {
   type: string;
+  children?: Node[];
   value?: string;
+  data?: { hProperties?: { [key: string]: string } };
+}
+interface MdNode extends Node {
+  depth?: number;
+}
+interface HtmlNode extends Node {
   tagName: string;
   properties: { [key: string]: string | string[] };
-  data?: { hProperties?: { [key: string]: string } };
-  depth?: number;
-};
+}
 
-function visit(root: Node, type: string, visitor: (node: Node) => void) {
+function visit<T extends Node>(
+  root: T,
+  type: string,
+  visitor: (node: T) => void,
+) {
   if (root.type === type) {
     visitor(root);
   }
   if (root.children) {
     for (const child of root.children) {
-      visit(child, type, visitor);
+      visit(child as T, type, visitor);
     }
   }
 }
@@ -25,11 +33,13 @@ function getText(node: Node): string {
 }
 
 // md->md ast transformer
-const remarkTransform = () => {
-  return (tree: Node) => {
+export const remarkTransform = () => {
+  return (tree: MdNode) => {
     visit(tree, "heading", (node) => {
       // # -> h2, ## -> h3, etc.
-      node.depth!++;
+      if (typeof node.depth === "number") {
+        node.depth = Math.min(node.depth + 1, 6);
+      }
 
       // Generate ID from text content
       const text = getText(node);
@@ -42,9 +52,9 @@ const remarkTransform = () => {
 };
 
 // html -> html ast transformer
-const rehypeTransform = () => {
-  return (tree: Node) => {
-    visit(tree, "element", (node: Node) => {
+export const rehypeTransform = () => {
+  return (tree: HtmlNode) => {
+    visit(tree, "element", (node) => {
       // Handle Headings
       if (["h1", "h2", "h3", "h4", "h5", "h6"].includes(node.tagName)) {
         const id = node.properties.id;
@@ -75,7 +85,3 @@ const rehypeTransform = () => {
     });
   };
 };
-
-type Plugin = (options?: unknown) => (tree: Node) => void;
-export const remarkPlugins: Plugin[] = [remarkTransform];
-export const rehypePlugins: Plugin[] = [rehypeTransform];
