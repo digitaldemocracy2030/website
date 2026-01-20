@@ -9,11 +9,12 @@ export const privateRepoStorage = GitHub.create(
   Deno.env.get("GITHUB_TOKEN")!,
 );
 
+export type Status = "draft" | "unlisted" | "public";
 export type Entry = {
   title: string;
   url: string;
   description: string;
-  status: "非公開" | "URL公開" | "公開";
+  status: Status;
 };
 
 // const jointStorage = new JointStorage({

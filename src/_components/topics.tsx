@@ -2,7 +2,7 @@ import { Entry } from "../../_storage.ts";
 
 export default function topics({ comp, search }: any) {
   const entries_: Entry[] = search.pages("type=topics", "publish_on=desc");
-  const entries = entries_.filter((entry) => entry.status === "公開");
+  const entries = entries_.filter((entry) => entry.status === "public");
   return (
     <ul class="prose">
       {entries.map((entry) => (

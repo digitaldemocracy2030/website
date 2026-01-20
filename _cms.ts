@@ -55,7 +55,11 @@ cms.collection({
     {
       name: "status",
       type: "select",
-      options: ["非公開", "URL公開", "公開"],
+      options: [
+        { label: "下書き", value: "draft" },
+        { label: "URL公開", value: "unlisted" },
+        { label: "公開", value: "public" },
+      ],
     },
     {
       name: "tags",
