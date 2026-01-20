@@ -132,17 +132,7 @@ description: デジタル民主主義2030プロジェクトポータルサイト
     <div class="gradient w-full h-0.5"></div>
     <div class="flex gap-4 mt-4"></div>
     <h2 class="text-3xl mt-5 pb-4">最新のお知らせ</h2>
-    <ul class="space-y-4 mt-4">
-      {{ for entry of search.pages("type=topics draft!=true", "publish_on=desc", 3) }}
-        <li class="pb-4">
-          <a href="{{ entry.url |> url }}" class="text-xl text-blue-600 hover:underline">
-            {{ entry.title }}
-          </a>
-          {{ comp.topicHeader({ entry }) }}
-          <p class="mt-2">{{ entry.description }}</p>
-        </li>
-      {{ /for }}
-    </ul>
+    {{ comp.topics() }}
     <div class="flex gap-4 mt-4">
       <a href="./topics" class="btn btn-primary">
         お知らせ一覧へ →

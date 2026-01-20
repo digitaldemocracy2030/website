@@ -9,6 +9,13 @@ export const privateRepoStorage = GitHub.create(
   Deno.env.get("GITHUB_TOKEN")!,
 );
 
+export type Entry = {
+  title: string;
+  url: string;
+  description: string;
+  status: "非公開" | "URL公開" | "公開";
+};
+
 // const jointStorage = new JointStorage({
 //   draft: draftStorage,
 //   public: publicStorage,
