@@ -53,9 +53,9 @@ cms.collection({
   },
   fields: [
     {
-      name: "draft",
-      type: "checkbox",
-      value: true,
+      name: "status",
+      type: "select",
+      options: ["非公開", "URL公開", "公開"],
     },
     {
       name: "tags",
