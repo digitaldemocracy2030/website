@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.deno-dir.outputs.denoDir }}
-          key: ${{ runner.os }}-deno
+          key: ${{ runner.os }}-deno-cache-${{ hashFiles('**/deno.lock') }}
       - name: Configure Pages
         id: configure
         uses: actions/configure-pages@v5

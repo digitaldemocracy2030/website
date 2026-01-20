@@ -2,7 +2,9 @@ import { Entry } from "../../_storage.ts";
 
 export default function topics({ comp, search }: any) {
   const entries_: Entry[] = search.pages("type=topics", "publish_on=desc");
-  const entries = entries_.filter((entry) => entry.status !== "draft" && entry.status !== "unlisted");
+  const entries = entries_.filter((entry) =>
+    entry.status !== "draft" && entry.status !== "unlisted"
+  );
   return (
     <ul class="prose">
       {entries.map((entry) => (
