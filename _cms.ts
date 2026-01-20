@@ -58,7 +58,7 @@ cms.collection({
       options: [
         { label: "下書き", value: "draft" },
         { label: "URL公開", value: "unlisted" },
-        { label: "公開", value: "public" },
+        { label: "公開", value: "" },
       ],
     },
     {

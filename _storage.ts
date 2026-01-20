@@ -9,7 +9,7 @@ export const privateRepoStorage = GitHub.create(
   Deno.env.get("GITHUB_TOKEN")!,
 );
 
-export type Status = "draft" | "unlisted" | "public";
+export type Status = "draft" | "unlisted" | "";
 export type Entry = {
   title: string;
   url: string;
