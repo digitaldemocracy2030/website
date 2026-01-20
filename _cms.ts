@@ -1,8 +1,8 @@
-import lumeCMS from "lume/cms/mod.ts";
-import Site from "lume/core/site.ts";
 import { privateRepoStorage } from "./_storage.ts";
+
+import lumeCMS from "lume/cms/mod.ts";
+import type Site from "lume/core/site.ts";
 import type { CMSContent } from "lume/cms/types.ts";
-import { th } from "npm:date-fns@4.1.0/locale";
 
 const cms = lumeCMS({
   site: {
@@ -49,9 +49,7 @@ cms.collection({
     return site.url(outputPath);
   },
   documentName: (data) => {
-    const { publish_on } = data;
-    const date = dateToZoned(data.publish_on).toPlainDate();
-    return `${date}-${data.title}.md`;
+    return `${data.publish_on}-${data.title}.md`;
   },
   fields: [
     {

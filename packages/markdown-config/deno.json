@@ -1,5 +1,16 @@
 {
   "name": "@local/markdown-config",
   "version": "0.0.0",
-  "exports": "./mod.ts"
+  "exports": "./mod.tsx",
+  "imports": {
+    "hastx": "npm:hastx@^0.1.2"
+  },
+  "compilerOptions": {
+    "jsxImportSource": "hastx"
+  },
+  "lint": {
+    "rules": {
+      "exclude": ["jsx-key"]
+    }
+  }
 }

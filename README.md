@@ -26,9 +26,6 @@ deno task build
 
 ```
 /
-├── old-nextjs/       # 元のファイル群 (近日削除予定)
-├── _config.ts        # Lume設定ファイル
-├── _cms.ts           # LumeCMS設定ファイル (整備中)
 ├── src/              # ソースファイル
 │   ├── _components/  # コンポーネント
 │   ├── _includes/    # テンプレート
@@ -45,6 +42,10 @@ deno task build
 │   ├── polimoney/    # Polimoneyページ
 │   ├── history/      # プロジェクト歴史ページ
 │   └── ...           # その他のページ
+├── packages/
+│   └── markdown-config/  # markdown の調整をする remark/rehype プラグイン
+├── _config.ts        # Lume設定ファイル
+├── _cms.ts           # LumeCMS設定ファイル (整備中)
 ├── deno.json         # Deno設定ファイル
 └── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ設定
 ```

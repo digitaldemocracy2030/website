@@ -9,7 +9,6 @@ import jsx from "lume/plugins/jsx.ts";
 import mdx from "lume/plugins/mdx.ts";
 import metas from "lume/plugins/metas.ts";
 import nav from "lume/plugins/nav.ts";
-import pagefind from "lume/plugins/pagefind.ts";
 import picture from "lume/plugins/picture.ts";
 import remark from "lume/plugins/remark.ts";
 import sitemap from "lume/plugins/sitemap.ts";
@@ -73,7 +72,6 @@ export function dd2030Config(site: Lume.Site) {
     },
   }));
   site.use(nav());
-  site.use(pagefind());
   site.add("style/main.css");
   site.use(sitemap({
     query: "noindex!=true",
