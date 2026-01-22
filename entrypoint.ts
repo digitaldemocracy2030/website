@@ -37,7 +37,9 @@ export default {
 } satisfies Deno.ServeDefaultExport;
 
 setEnv("LUME_LIVE_RELOAD", "true");
-setEnv("LUME_DRAFTS", "true");
+
+// Site instance for CMS
+// Different dest from the main site
 const site = lume({
   prettyUrls: false,
   src: "src",

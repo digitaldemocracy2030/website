@@ -42,9 +42,7 @@ cms.collection({
     const outputPath = path.replace(/\.md$/, ".html");
     const srcPath = "/topics/drafts.page.ts";
     if (hasChanged) {
-      console.log("updating");
       site.update(new Set([srcPath]));
-      console.log("updated");
     }
     return site.url(outputPath);
   },
