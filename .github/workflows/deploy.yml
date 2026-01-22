@@ -37,9 +37,9 @@ jobs:
         id: configure
         uses: actions/configure-pages@v5
       - name: lume build
-        run: |
-          rm _cms.ts
-          deno task build --location=${{steps.configure.outputs.base_url}}
+        run: deno task build --location=${{steps.configure.outputs.base_url}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_FOR_PRIVATE_REPO }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
