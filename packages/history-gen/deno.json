@@ -1,0 +1,8 @@
+{
+  "name": "@local/history-gen",
+  "version": "0.0.0",
+  "exports": "./mod.tsx",
+  "imports": {
+    "openai": "npm:openai@^6.33.0"
+  }
+}

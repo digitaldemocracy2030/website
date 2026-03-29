@@ -1,5 +1,6 @@
 {
   "workspace": [
+    "./packages/history-gen",
     "./packages/markdown-config"
   ],
   "tasks": {

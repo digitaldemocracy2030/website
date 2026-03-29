@@ -1,6 +1,6 @@
 {
   "name": "Deno",
-  "image": "mcr.microsoft.com/devcontainers/base:trixie",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
   "features": {
     "ghcr.io/devcontainers-community/features/deno:1": {}
   },
