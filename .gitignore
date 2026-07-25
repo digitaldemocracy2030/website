@@ -3,3 +3,4 @@ _site
 _cms
 .env
 node_modules
+*.code-workspace
