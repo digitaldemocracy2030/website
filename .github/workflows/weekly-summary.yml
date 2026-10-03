@@ -21,14 +21,14 @@ jobs:
           gh auth status || echo "GitHub CLIの認証に問題があります"
 
       - name: Checkout dd2030-website repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: dd2030-website
           ref: main
           fetch-depth: 0
 
       - name: Checkout oss_weekly_reporter repository (main branch)
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: nishio/oss_weekly_reporter
           ref: main
@@ -76,12 +76,12 @@ jobs:
           ls -la "oss_weekly_reporter/${latest}" || true
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.10"
 
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/pip
           key: pip-cache-${{ runner.os }}-py-${{ hashFiles('**/oss_weekly_reporter/pyproject.toml', '**/oss_weekly_reporter/requirements.txt') }}
@@ -166,7 +166,7 @@ jobs:
           echo "end_date=${end_date}" >> $GITHUB_ENV
 
       - name: Create Pull Request with summaries
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: dd2030-website
