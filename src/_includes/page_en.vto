@@ -1,0 +1,16 @@
+---
+layout: layout.vto
+---
+<section class="max-w-xl mx-auto">
+  <h1 class="text-4xl font-bold mb-6">{{ title }}</h1>
+  <aside class="alert mb-6 text-sm" data-pagefind-ignore="all">
+    <span>
+      This page is an English translation of the
+      <a class="link" href="{{ ja_url }}" hreflang="ja" lang="ja">Japanese original</a>,
+      last translated on {{ translated }}. If the two differ, the Japanese page is the authoritative version.
+    </span>
+  </aside>
+  <div class="content {{ content_classes |> join(" ") }}">
+    {{ content }}
+  </div>
+</section>
