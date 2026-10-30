@@ -108,4 +108,10 @@ description: 韓国日報の取材で、韓国の政治YouTube 6チャンネル�
   <p class="mt-4">
     広聴AIで、gpt-4.1により各チャットから意見を日本語の文として抽出し、text-embedding-3-small でベクトルにしました。UMAPで2次元に配置し、k-meansで100群に分けたうえでWard法で10群にまとめ、群名と説明をLLMで生成しました。侮辱・ヘイトと政策提案の判定は、日本語の抽出文に対するAIのyes/no判定で、人による検証はしていません。英語・韓国語への翻訳はローカルで動かしたGemma 4 12B系のモデルで行いました。
   </p>
+  <p class="mt-4">
+    この分析を、コーディングエージェント（Codex・Claude Code）にどう指示して進めたかは、広聴AIのドキュメントの事例にまとめています。
+  </p>
+  <div class="mt-4">
+    <a href="https://digitaldemocracy2030.github.io/kouchou-ai/user-guide/coding-agent-case-study.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline h-9">この分析の進め方（広聴AIドキュメント） →</a>
+  </div>
 </section>
