@@ -13,7 +13,7 @@ content_classes:
 
 ### Slack
 
-DD2030の活動の中心はSlackです。参加は無料で、どなたでも歓迎です。
+DD2030の活動の中心はSlackです。参加は無料で、どなたでも歓迎です。参加方法の詳細は[第4章](../04/)を参照してください。
 
 **Slack招待リンク：** https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w
 
@@ -36,8 +36,8 @@ DD2030の活動の中心はSlackです。参加は無料で、どなたでも歓
 
 | 資料                                                 | URL                             |
 | ---------------------------------------------------- | ------------------------------- |
-| **『政治・自治体・企業に広がるブロードリスニング』** | https://broadlisteningbook.com/ |
-| **Broad Listening Book（英語版）**                   | https://broadlisteningbook.com/ |
+| **『政治・自治体・企業に広がるブロードリスニング』（日本語版）** | https://broadlisteningbook.com/ja |
+| **Broad Listening Book（英語版）**                              | https://broadlisteningbook.com/   |
 
 ---
 
