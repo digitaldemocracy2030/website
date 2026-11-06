@@ -35,11 +35,12 @@ DD2030の活動の中心はSlackです。まずはSlackに参加しましょう�
 
 ### 最初に見るべきチャンネル
 
-Slackに参加したら、まず以下のようなチャンネルを確認してみましょう：
+Slackに参加したら、まず以下のチャンネルを確認してみましょう：
 
-* 自己紹介チャンネルで挨拶する
-* 興味のあるプロジェクトのチャンネルを覗く
-* 「こんな人募集」チャンネルで、今求められている役割を確認する
+* **`#1_自己紹介`** — まずはここで簡単な挨拶と自己紹介をしましょう
+* **`#0_全体お知らせ`** — 定例会やウェルカムミーティングの日程が流れます
+* **`#7_雑談`** — イベント情報やちょっとしたアイデアを気軽に共有する場
+* 興味のあるプロジェクトのチャンネル（例：`#2_開発_広聴ai`）を覗いてみる
 
 ### 知っておくべきこと
 
@@ -60,7 +61,7 @@ Slackに参加したら、まず以下のようなチャンネルを確認して
 |---|---|---|
 | 広聴AI | [kouchou-ai](https://github.com/digitaldemocracy2030/kouchou-ai) | [dd2030.org/kouchou-ai](https://dd2030.org/kouchou-ai/) |
 | いどばた | [idobata](https://github.com/digitaldemocracy2030/idobata) | [dd2030.org/idobata](https://dd2030.org/idobata/) |
-| Project Coreloop | — | [coreloop.dd2030.org](https://coreloop.dd2030.org/) |
+| Project Coreloop | [coreloop-ai-survey](https://github.com/digitaldemocracy2030/coreloop-ai-survey) | [coreloop.dd2030.org](https://coreloop.dd2030.org/) |
 | Polimoney | [polimoney](https://github.com/digitaldemocracy2030/polimoney) | [polimoney.dd2030.org](https://polimoney.dd2030.org/) |
 
 ---
