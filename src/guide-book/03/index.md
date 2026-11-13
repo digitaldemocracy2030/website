@@ -114,11 +114,11 @@ https://slownews.com/n/n47ec24c81322
 
 ### 前澤さん、鈴木さんのXへの投稿（2025/12/3～4）
 
-- [前澤友作氏 — 詐欺広告問題への問題提起](https://x.com/yousuck2020/status/1996006056959570089?s=20)
-- [前澤友作氏 — 民間主導の対策の必要性](https://x.com/yousuck2020/status/1996033207821893667?s=20)
-- [鈴木健氏（DD2030代表）— Project Coreloopの紹介](https://x.com/kensuzuki/status/1996077277080420567?s=20)
-- [前澤友作氏 — プロジェクトへの支持表明](https://x.com/yousuck2020/status/1996392009050038519?s=20)
-- [前澤友作氏 — 市民参加の呼びかけ](https://x.com/yousuck2020/status/1996427647942119766?s=20)
+- [前澤友作氏 — 詐欺広告問題への問題提起](https://x.com/yousuck2020/status/1996006056959570089)
+- [前澤友作氏 — 民間主導の対策の必要性](https://x.com/yousuck2020/status/1996033207821893667)
+- [鈴木健氏（DD2030代表）— Project Coreloopの紹介](https://x.com/kensuzuki/status/1996077277080420567)
+- [前澤友作氏 — プロジェクトへの支持表明](https://x.com/yousuck2020/status/1996392009050038519)
+- [前澤友作氏 — 市民参加の呼びかけ](https://x.com/yousuck2020/status/1996427647942119766)
 
 ---
 

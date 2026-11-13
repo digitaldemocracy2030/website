@@ -7,7 +7,7 @@ content_classes:
   - prose
 ---
 
-> **このガイドブックは整備中です。** 内容は随時更新されます。
+> **このガイドブックは整備中です。** 内容は随時更新されます。フィードバックは[Slack](https://join.slack.com/t/dd2030/shared_invite/zt-3bg5nmxiv-CB9LXLpvxH_JvJil_EPa_w)または[GitHub](https://github.com/digitaldemocracy2030)でお寄せください。
 
 DD2030に興味を持って参加してくれた方が、スムーズに活動に加わるための手引きです。
 
